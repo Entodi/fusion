@@ -12,7 +12,7 @@ This project is under active development, and the codebase is subject to change.
 ## Installation
 To install requirements:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 To install in standard mode:
 ```
@@ -23,11 +23,6 @@ To install in development mode:
 pip install -e .
 ```
 
-### Docker
-```bash
-docker build . -t fusion
-docker run --gpus all -v /data:/data -it fusion bash
-```
 ---
 ## Experiments
 To run a default experiment, use:
@@ -53,31 +48,6 @@ The training pipeline is based on the Catalyst framework (https://catalyst-team.
 ## Questions
 If you have any questions about implementation and training, don't hesitate to either open an issue here or send an email to eidos92@gmail.com.
 
----
-## Development
-
-### Roadmap:
-Last updated December 23th, 2021
-
-Current ToDo list:
-- Documentation
-- Typing
-- Code
-  - architecture
-    - DCGAN
-      - VaeEncoder
-      - VaeDecoder
-  - model
-    - MMVAE
-  - criterion
-    - mi_estimator
-      - critic
-        - Bilinear
-      - Donsker Varadhan Loss
-    - misc
-      - mmvae
-  - task
-    - out of distribution generalization
 ---
 ### Package Architecture
 
