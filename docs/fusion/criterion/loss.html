@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>loss &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="dim" href="loss/dim.html" />
+    <link rel="prev" title="criterion" href="../criterion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html">architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../criterion.html">criterion</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">loss</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/dim.html">dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.abaseloss">abaseloss</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.ae">ae</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.cr_cca">cr_cca</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.dccae">dccae</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.multi_dim">multi_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.pixl">pixl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.pytorch_wrappers">pytorch_wrappers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.rr_ae">rr_ae</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.supcon">supcon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.loss.supcon_dim">supcon_dim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator.html">mi_estimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc.html">misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../criterion.html#module-fusion.criterion.criterion_provider">criterion_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../fusion.html">fusion</a></li>
+          <li class="breadcrumb-item"><a href="../criterion.html">criterion</a></li>
+      <li class="breadcrumb-item active">loss</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/fusion/criterion/loss.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="loss">
+<h1>loss<a class="headerlink" href="#loss" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loss/dim.html">dim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim/tests.html#module-fusion.criterion.loss.dim.tests.test_dim">test_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/dim/tests.html#fusion.criterion.loss.dim.tests.test_dim.TestDim"><code class="docutils literal notranslate"><span class="pre">TestDim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim.html#module-fusion.criterion.loss.dim.base_dim">base_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim.html#fusion.criterion.loss.dim.base_dim.BaseDim"><code class="docutils literal notranslate"><span class="pre">BaseDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim.html#module-fusion.criterion.loss.dim.cc_dim">cc_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim.html#fusion.criterion.loss.dim.cc_dim.CcDim"><code class="docutils literal notranslate"><span class="pre">CcDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim.html#module-fusion.criterion.loss.dim.cr_dim">cr_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim.html#fusion.criterion.loss.dim.cr_dim.CrDim"><code class="docutils literal notranslate"><span class="pre">CrDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim.html#module-fusion.criterion.loss.dim.rr_dim">rr_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim.html#fusion.criterion.loss.dim.rr_dim.RrDim"><code class="docutils literal notranslate"><span class="pre">RrDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/dim.html#module-fusion.criterion.loss.dim.xx_dim">xx_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/dim.html#fusion.criterion.loss.dim.xx_dim.XxDim"><code class="docutils literal notranslate"><span class="pre">XxDim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loss/tests.html">tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="loss/tests.html#module-fusion.criterion.loss.tests.test_cr_cca">test_cr_cca</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_cr_cca.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_cr_cca.TestSpatialMultiDim.test_cr_cca"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim.test_cr_cca()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/tests.html#module-fusion.criterion.loss.tests.test_dccae">test_dccae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_dccae.TestDCCAE"><code class="docutils literal notranslate"><span class="pre">TestDCCAE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_dccae.TestDCCAE.test_dccae"><code class="docutils literal notranslate"><span class="pre">TestDCCAE.test_dccae()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/tests.html#module-fusion.criterion.loss.tests.test_rr_ae">test_rr_ae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_rr_ae.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_rr_ae.TestSpatialMultiDim.test_rr_ae"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim.test_rr_ae()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/tests.html#module-fusion.criterion.loss.tests.test_spatial_multi_dim">test_spatial_multi_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_spatial_multi_dim.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_spatial_multi_dim.TestSpatialMultiDim.test_spatial_multi_dim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim.test_spatial_multi_dim()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="loss/tests.html#module-fusion.criterion.loss.tests.test_volumetric_multi_dim">test_volumetric_multi_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_volumetric_multi_dim.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="loss/tests.html#fusion.criterion.loss.tests.test_volumetric_multi_dim.TestSpatialMultiDim.test_spatial_multi_dim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim.test_spatial_multi_dim()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-fusion.criterion.loss.abaseloss">
+<span id="abaseloss"></span><h2>abaseloss<a class="headerlink" href="#module-fusion.criterion.loss.abaseloss" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.abaseloss.ABaseLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.abaseloss.</span></span><span class="sig-name descname"><span class="pre">ABaseLoss</span></span><a class="headerlink" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.abaseloss.ABaseLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.abaseloss.ABaseLoss.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.abaseloss.ABaseLoss.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.abaseloss.ABaseLoss.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.ae">
+<span id="ae"></span><h2>ae<a class="headerlink" href="#module-fusion.criterion.loss.ae" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.ae.AE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.ae.</span></span><span class="sig-name descname"><span class="pre">AE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.ae.AE" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.ae.AE.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.ae.AE.forward" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – </p></li>
+<li><p><strong>target</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.ae.AE.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.ae.AE.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.cr_cca">
+<span id="cr-cca"></span><h2>cr_cca<a class="headerlink" href="#module-fusion.criterion.loss.cr_cca" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.cr_cca.CR_CCA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.cr_cca.</span></span><span class="sig-name descname"><span class="pre">CR_CCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim_cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cca_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.cr_cca.CR_CCA" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.cr_cca.CR_CCA.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.cr_cca.CR_CCA.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward pass for the loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – Model output</p></li>
+<li><p><strong>target</strong> – Targets, however, loss do no use them.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total loss
+raw_losses: Dictionary for logging with all the computed losses</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total_loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.cr_cca.CR_CCA.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.cr_cca.CR_CCA.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fusion.criterion.loss.cr_cca.choose_multi_dim">
+<span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.cr_cca.</span></span><span class="sig-name descname"><span class="pre">choose_multi_dim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.cr_cca.choose_multi_dim" title="Permalink to this definition"></a></dt>
+<dd><p>Chooses implementation for Multi Dim objective based on a number of the input dimensions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – The number of input dimensions, e.g. an image is 2-dimensional (input_dim=2) and</p></li>
+<li><p><strong>3-dimensional</strong> (<em>a volume is</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>multi_dim_type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.dccae">
+<span id="dccae"></span><h2>dccae<a class="headerlink" href="#module-fusion.criterion.loss.dccae" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.dccae.DCCAE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.dccae.</span></span><span class="sig-name descname"><span class="pre">DCCAE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cca_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.dccae.DCCAE" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.dccae.DCCAE.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.dccae.DCCAE.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward pass for the loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – Model output</p></li>
+<li><p><strong>target</strong> – Targets, however, loss do no use them.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total loss
+raw_losses: Dictionary for logging with all the computed losses</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total_loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.dccae.DCCAE.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.dccae.DCCAE.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.multi_dim">
+<span id="multi-dim"></span><h2>multi_dim<a class="headerlink" href="#module-fusion.criterion.loss.multi_dim" title="Permalink to this heading"></a></h2>
+<p>MIT License</p>
+<p>Copyright (c) [2019] [Philip Bachman]</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.MultiDim">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.multi_dim.</span></span><span class="sig-name descname"><span class="pre">MultiDim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim_cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['CR',</span> <span class="pre">'XX',</span> <span class="pre">'CC',</span> <span class="pre">'RR']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.multi_dim.MultiDim" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.MultiDim.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.multi_dim.MultiDim.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.MultiDim.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.multi_dim.MultiDim.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.SpatialMultiDim">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.multi_dim.</span></span><span class="sig-name descname"><span class="pre">SpatialMultiDim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim_cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['CR',</span> <span class="pre">'XX',</span> <span class="pre">'CC',</span> <span class="pre">'RR']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.multi_dim.SpatialMultiDim" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.multi_dim.MultiDim" title="fusion.criterion.loss.multi_dim.MultiDim"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiDim</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.SpatialMultiDim.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.multi_dim.SpatialMultiDim.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.VolumetricMultiDim">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.multi_dim.</span></span><span class="sig-name descname"><span class="pre">VolumetricMultiDim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim_cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['CR',</span> <span class="pre">'XX',</span> <span class="pre">'CC',</span> <span class="pre">'RR']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.multi_dim.VolumetricMultiDim" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.multi_dim.MultiDim" title="fusion.criterion.loss.multi_dim.MultiDim"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiDim</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.multi_dim.VolumetricMultiDim.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.multi_dim.VolumetricMultiDim.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.pixl">
+<span id="pixl"></span><h2>pixl<a class="headerlink" href="#module-fusion.criterion.loss.pixl" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pixl.PIXL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.pixl.</span></span><span class="sig-name descname"><span class="pre">PIXL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Setting</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trade_off</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.pixl.PIXL" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pixl.PIXL.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.pixl.PIXL.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward pass for the loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – Model output</p></li>
+<li><p><strong>target</strong> – Targets, however, loss do no use them.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total loss
+raw_losses: Dictionary for logging with all the computed losses</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total_loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pixl.PIXL.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.pixl.PIXL.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.pytorch_wrappers">
+<span id="pytorch-wrappers"></span><h2>pytorch_wrappers<a class="headerlink" href="#module-fusion.criterion.loss.pytorch_wrappers" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.pytorch_wrappers.</span></span><span class="sig-name descname"><span class="pre">BCEWithLogitsLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward method of class Binary Cross Entropy with
+logits loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – input tensor</p></li>
+<li><p><strong>target</strong> – target tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Class of Binary Cross Entropy with logits loss
+between input and target tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.pytorch_wrappers.</span></span><span class="sig-name descname"><span class="pre">CustomCrossEntropyLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward method of class Cross Entropy Loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – input model’s output</p></li>
+<li><p><strong>target</strong> – target tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cross Entropy Loss between input and target tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.rr_ae">
+<span id="rr-ae"></span><h2>rr_ae<a class="headerlink" href="#module-fusion.criterion.loss.rr_ae" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.rr_ae.RR_AE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.rr_ae.</span></span><span class="sig-name descname"><span class="pre">RR_AE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator_setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Setting</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.rr_ae.RR_AE" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.rr_ae.RR_AE.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.rr_ae.RR_AE.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Forward pass for the loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> – Model output</p></li>
+<li><p><strong>target</strong> – Targets, however, loss do no use them.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total loss
+raw_losses: Dictionary for logging with all the computed losses</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total_loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.rr_ae.RR_AE.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.rr_ae.RR_AE.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.supcon">
+<span id="supcon"></span><h2>supcon<a class="headerlink" href="#module-fusion.criterion.loss.supcon" title="Permalink to this heading"></a></h2>
+<p>BSD 2-Clause License</p>
+<p>Copyright (c) 2020, Yonglong Tian
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol class="arabic simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupCon">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.supcon.</span></span><span class="sig-name descname"><span class="pre">SupCon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon.SupCon" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupCon.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.supcon.SupCon.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupCon.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.supcon.SupCon.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupConLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.supcon.</span></span><span class="sig-name descname"><span class="pre">SupConLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.07</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon.SupConLoss" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Supervised Contrastive Learning: <a class="reference external" href="https://arxiv.org/pdf/2004.11362.pdf">https://arxiv.org/pdf/2004.11362.pdf</a>.
+It also supports the unsupervised contrastive loss in SimCLR</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupConLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon.SupConLoss.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Compute loss for model. If both <cite>labels</cite> and <cite>mask</cite> are None,
+it degenerates to SimCLR unsupervised loss:
+<a class="reference external" href="https://arxiv.org/pdf/2002.05709.pdf">https://arxiv.org/pdf/2002.05709.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>features</strong> – hidden vector of shape [bsz, n_views, …].</p></li>
+<li><p><strong>labels</strong> – ground truth of shape [bsz].</p></li>
+<li><p><strong>mask</strong> – contrastive mask of shape [bsz, bsz], mask_{i,j}=1 if sample j
+has the same class as sample i. Can be asymmetric.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A loss scalar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon.SupConLoss.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.supcon.SupConLoss.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.loss.supcon_dim">
+<span id="supcon-dim"></span><h2>supcon_dim<a class="headerlink" href="#module-fusion.criterion.loss.supcon_dim" title="Permalink to this heading"></a></h2>
+<p>BSD 2-Clause License</p>
+<p>Copyright (c) 2020, Yonglong Tian
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol class="arabic simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConDim">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.supcon_dim.</span></span><span class="sig-name descname"><span class="pre">SupConDim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">critic_setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConDim" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.loss.abaseloss.ABaseLoss" title="fusion.criterion.loss.abaseloss.ABaseLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConDim.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConDim.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConDim.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConDim.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.loss.supcon_dim.</span></span><span class="sig-name descname"><span class="pre">SupConLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">critic_setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConLoss" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Supervised Contrastive Learning: <a class="reference external" href="https://arxiv.org/pdf/2004.11362.pdf">https://arxiv.org/pdf/2004.11362.pdf</a>.
+It also supports the unsupervised contrastive loss in SimCLR</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConLoss.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConLoss.forward" title="Permalink to this definition"></a></dt>
+<dd><p>Compute loss for model. If both <cite>labels</cite> and <cite>mask</cite> are None,
+it degenerates to SimCLR unsupervised loss:
+<a class="reference external" href="https://arxiv.org/pdf/2002.05709.pdf">https://arxiv.org/pdf/2002.05709.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>features</strong> – hidden vector of shape [bsz, n_views, …].</p></li>
+<li><p><strong>labels</strong> – ground truth of shape [bsz].</p></li>
+<li><p><strong>mask</strong> – contrastive mask of shape [bsz, bsz], mask_{i,j}=1 if sample j
+has the same class as sample i. Can be asymmetric.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A loss scalar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.criterion.loss.supcon_dim.SupConLoss.training">
+<span class="sig-name descname"><span class="pre">training</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#fusion.criterion.loss.supcon_dim.SupConLoss.training" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../criterion.html" class="btn btn-neutral float-left" title="criterion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="loss/dim.html" class="btn btn-neutral float-right" title="dim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mi_estimator &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="clip" href="mi_estimator/clip.html" />
+    <link rel="prev" title="tests" href="loss/tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html">architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../criterion.html">criterion</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="loss.html">loss</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mi_estimator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/clip.html">clip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/critic.html">critic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html">measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/penalty.html">penalty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.mi_estimator.base_mi_estimator">base_mi_estimator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.mi_estimator.fenchel_dual">fenchel_dual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fusion.criterion.mi_estimator.infonce">infonce</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="misc.html">misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../criterion.html#module-fusion.criterion.criterion_provider">criterion_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../fusion.html">fusion</a></li>
+          <li class="breadcrumb-item"><a href="../criterion.html">criterion</a></li>
+      <li class="breadcrumb-item active">mi_estimator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/fusion/criterion/mi_estimator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mi-estimator">
+<h1>mi_estimator<a class="headerlink" href="#mi-estimator" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mi_estimator/clip.html">clip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/clip/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/clip/tests.html#module-fusion.criterion.mi_estimator.clip.tests.test_clips">test_clips</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/clip/tests.html#fusion.criterion.mi_estimator.clip.tests.test_clips.TestClips"><code class="docutils literal notranslate"><span class="pre">TestClips</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.base_clip">base_clip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/clip.html#fusion.criterion.mi_estimator.clip.base_clip.ABaseClip"><code class="docutils literal notranslate"><span class="pre">ABaseClip</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/clip.html#fusion.criterion.mi_estimator.clip.base_clip.ABaseClip.clip_value"><code class="docutils literal notranslate"><span class="pre">ABaseClip.clip_value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.tahn_clip">tahn_clip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/clip.html#fusion.criterion.mi_estimator.clip.tahn_clip.TahnClip"><code class="docutils literal notranslate"><span class="pre">TahnClip</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mi_estimator/critic.html">critic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/critic/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/critic/tests.html#module-fusion.criterion.mi_estimator.critic.tests.test_separable_critics">test_separable_critics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/critic/tests.html#fusion.criterion.mi_estimator.critic.tests.test_separable_critics.TestSeparableCritics"><code class="docutils literal notranslate"><span class="pre">TestSeparableCritics</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.base_critic">base_critic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.base_critic.ABaseCritic"><code class="docutils literal notranslate"><span class="pre">ABaseCritic</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.separable_critic">separable_critic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.CosineSimilarity"><code class="docutils literal notranslate"><span class="pre">CosineSimilarity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.ScaledDotProduct"><code class="docutils literal notranslate"><span class="pre">ScaledDotProduct</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.SeparableCritic"><code class="docutils literal notranslate"><span class="pre">SeparableCritic</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mi_estimator/measure.html">measure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/measure.html#module-fusion.criterion.mi_estimator.measure.base_measure">base_measure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">ABaseMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">ABaseMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure"><code class="docutils literal notranslate"><span class="pre">DVMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">DVMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">DVMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure"><code class="docutils literal notranslate"><span class="pre">GanMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">GanMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">GanMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.H2Measure"><code class="docutils literal notranslate"><span class="pre">H2Measure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">H2Measure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">H2Measure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure"><code class="docutils literal notranslate"><span class="pre">JsdMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">JsdMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">JsdMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure"><code class="docutils literal notranslate"><span class="pre">KLMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">KLMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">KLMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure"><code class="docutils literal notranslate"><span class="pre">RKLMeasure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">RKLMeasure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">RKLMeasure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.W1Measure"><code class="docutils literal notranslate"><span class="pre">W1Measure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">W1Measure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">W1Measure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.X2Measure"><code class="docutils literal notranslate"><span class="pre">X2Measure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_negative_expectation"><code class="docutils literal notranslate"><span class="pre">X2Measure.get_negative_expectation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_positive_expectation"><code class="docutils literal notranslate"><span class="pre">X2Measure.get_positive_expectation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.log_sum_exp"><code class="docutils literal notranslate"><span class="pre">log_sum_exp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mi_estimator/penalty.html">penalty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/penalty/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/penalty/tests.html#module-fusion.criterion.mi_estimator.penalty.tests.test_penalties">test_penalties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/penalty/tests.html#fusion.criterion.mi_estimator.penalty.tests.test_penalties.TestPenalties"><code class="docutils literal notranslate"><span class="pre">TestPenalties</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.base_penalty">base_penalty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/penalty.html#fusion.criterion.mi_estimator.penalty.base_penalty.ABasePenalty"><code class="docutils literal notranslate"><span class="pre">ABasePenalty</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.l2_penalty">l2_penalty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/penalty.html#fusion.criterion.mi_estimator.penalty.l2_penalty.L2Penalty"><code class="docutils literal notranslate"><span class="pre">L2Penalty</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mi_estimator/tests.html">tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mi_estimator/tests.html#module-fusion.criterion.mi_estimator.tests.test_estimators">test_estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mi_estimator/tests.html#fusion.criterion.mi_estimator.tests.test_estimators.TestMIEstimators"><code class="docutils literal notranslate"><span class="pre">TestMIEstimators</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/tests.html#fusion.criterion.mi_estimator.tests.test_estimators.TestMIEstimators.test_fenchel_dual"><code class="docutils literal notranslate"><span class="pre">TestMIEstimators.test_fenchel_dual()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mi_estimator/tests.html#fusion.criterion.mi_estimator.tests.test_estimators.TestMIEstimators.test_infonce_estimator"><code class="docutils literal notranslate"><span class="pre">TestMIEstimators.test_infonce_estimator()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-fusion.criterion.mi_estimator.base_mi_estimator">
+<span id="base-mi-estimator"></span><h2>base_mi_estimator<a class="headerlink" href="#module-fusion.criterion.mi_estimator.base_mi_estimator" title="Permalink to this heading"></a></h2>
+<p>BSD 3-Clause License</p>
+<p>Copyright (c) 2018, Devon Hjelm
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ul class="simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>MIT License</p>
+<p>Copyright (c) [2019] [Philip Bachman]</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.base_mi_estimator.</span></span><span class="sig-name descname"><span class="pre">ABaseMIEstimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">critic_setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.mi_estimator.fenchel_dual">
+<span id="fenchel-dual"></span><h2>fenchel_dual<a class="headerlink" href="#module-fusion.criterion.mi_estimator.fenchel_dual" title="Permalink to this heading"></a></h2>
+<p>BSD 3-Clause License</p>
+<p>Copyright (c) 2018, Devon Hjelm
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ul class="simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.fenchel_dual.FenchelDualEstimator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.fenchel_dual.</span></span><span class="sig-name descname"><span class="pre">FenchelDualEstimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">critic_setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'JSD'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.fenchel_dual.FenchelDualEstimator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator" title="fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMIEstimator</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="module-fusion.criterion.mi_estimator.infonce">
+<span id="infonce"></span><h2>infonce<a class="headerlink" href="#module-fusion.criterion.mi_estimator.infonce" title="Permalink to this heading"></a></h2>
+<p>MIT License</p>
+<p>Copyright (c) [2019] [Philip Bachman]</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.infonce.InfoNceEstimator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.infonce.</span></span><span class="sig-name descname"><span class="pre">InfoNceEstimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">critic_setting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.infonce.InfoNceEstimator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator" title="fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMIEstimator</span></code></a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="loss/tests.html" class="btn btn-neutral float-left" title="tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mi_estimator/clip.html" class="btn btn-neutral float-right" title="clip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>runner &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="catalyst" href="runner/catalyst.html" />
+    <link rel="prev" title="optimizer" href="optimizer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="criterion.html">criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runner/catalyst.html">catalyst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.runner.abaserunner">abaserunner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fusion.runner.abaserunner.ABaseRunner"><code class="docutils literal notranslate"><span class="pre">ABaseRunner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.runner.runner_provider">runner_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../fusion.html">fusion</a></li>
+      <li class="breadcrumb-item active">runner</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/fusion/runner.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="runner">
+<h1>runner<a class="headerlink" href="#runner" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="runner/catalyst.html">catalyst</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runner/catalyst.html#module-fusion.runner.catalyst.catalyst_runner">catalyst_runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner"><code class="docutils literal notranslate"><span class="pre">CatalystRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.epoch"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.epoch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.get_loaders"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.get_loaders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.handle_batch"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.handle_batch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.on_loader_end"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.on_loader_end()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.on_loader_start"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.on_loader_start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.predict_batch"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.predict_batch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.train_batch_id"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.train_batch_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.valid_batch_id"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.valid_batch_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner.valid_loss"><code class="docutils literal notranslate"><span class="pre">CatalystRunner.valid_loss</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runner/catalyst.html#module-fusion.runner.catalyst.mnist_svhn_runner">mnist_svhn_runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.batch"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.batch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.batch_metrics"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.batch_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.batch_size"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.batch_step"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.batch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.callbacks"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.callbacks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.criterion"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.criterion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.engine"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.engine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.epoch_metrics"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.epoch_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.epoch_step"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.epoch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.exception"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.exception</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.experiment_metrics"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.experiment_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.is_infer_loader"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.is_infer_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.is_train_loader"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.is_train_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.is_valid_loader"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.is_valid_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_batch_len"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_batch_len</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_batch_size"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_batch_step"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_batch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_key"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_metrics"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_sample_len"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_sample_len</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loader_sample_step"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loader_sample_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loaders"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loaders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.loggers"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.loggers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.model"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.need_early_stop"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.need_early_stop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.optimizer"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.optimizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.sample_step"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.sample_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner.scheduler"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner.scheduler</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runner/catalyst.html#module-fusion.runner.catalyst.oasis_runner">oasis_runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner"><code class="docutils literal notranslate"><span class="pre">OasisRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.batch"><code class="docutils literal notranslate"><span class="pre">OasisRunner.batch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.batch_metrics"><code class="docutils literal notranslate"><span class="pre">OasisRunner.batch_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.batch_size"><code class="docutils literal notranslate"><span class="pre">OasisRunner.batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.batch_step"><code class="docutils literal notranslate"><span class="pre">OasisRunner.batch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.callbacks"><code class="docutils literal notranslate"><span class="pre">OasisRunner.callbacks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.criterion"><code class="docutils literal notranslate"><span class="pre">OasisRunner.criterion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.engine"><code class="docutils literal notranslate"><span class="pre">OasisRunner.engine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.epoch_metrics"><code class="docutils literal notranslate"><span class="pre">OasisRunner.epoch_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.epoch_step"><code class="docutils literal notranslate"><span class="pre">OasisRunner.epoch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.exception"><code class="docutils literal notranslate"><span class="pre">OasisRunner.exception</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.experiment_metrics"><code class="docutils literal notranslate"><span class="pre">OasisRunner.experiment_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.is_infer_loader"><code class="docutils literal notranslate"><span class="pre">OasisRunner.is_infer_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.is_train_loader"><code class="docutils literal notranslate"><span class="pre">OasisRunner.is_train_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.is_valid_loader"><code class="docutils literal notranslate"><span class="pre">OasisRunner.is_valid_loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_batch_len"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_batch_len</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_batch_size"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_batch_step"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_batch_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_key"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_metrics"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_sample_len"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_sample_len</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loader_sample_step"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loader_sample_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loaders"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loaders</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.loggers"><code class="docutils literal notranslate"><span class="pre">OasisRunner.loggers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.model"><code class="docutils literal notranslate"><span class="pre">OasisRunner.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.need_early_stop"><code class="docutils literal notranslate"><span class="pre">OasisRunner.need_early_stop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.optimizer"><code class="docutils literal notranslate"><span class="pre">OasisRunner.optimizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.sample_step"><code class="docutils literal notranslate"><span class="pre">OasisRunner.sample_step</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner.scheduler"><code class="docutils literal notranslate"><span class="pre">OasisRunner.scheduler</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-fusion.runner.abaserunner">
+<span id="abaserunner"></span><h2>abaserunner<a class="headerlink" href="#module-fusion.runner.abaserunner" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.runner.abaserunner.ABaseRunner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.runner.abaserunner.</span></span><span class="sig-name descname"><span class="pre">ABaseRunner</span></span><a class="headerlink" href="#fusion.runner.abaserunner.ABaseRunner" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-fusion.runner.runner_provider">
+<span id="runner-provider"></span><h2>runner_provider<a class="headerlink" href="#module-fusion.runner.runner_provider" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="optimizer.html" class="btn btn-neutral float-left" title="optimizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="runner/catalyst.html" class="btn btn-neutral float-right" title="catalyst" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

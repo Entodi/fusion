@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dataset &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mnist_svhn" href="dataset/mnist_svhn.html" />
+    <link rel="prev" title="mmvae" href="criterion/misc/mmvae.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="criterion.html">criterion</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/mnist_svhn.html">mnist_svhn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/oasis.html">oasis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html">two_view_mnist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html">ukbiobank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.dataset.abasedataset">abasedataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fusion.dataset.abasedataset.ABaseDataset"><code class="docutils literal notranslate"><span class="pre">ABaseDataset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.dataset.abasetransform">abasetransform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fusion.dataset.abasetransform.ABaseTransform"><code class="docutils literal notranslate"><span class="pre">ABaseTransform</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.dataset.dataset_provider">dataset_provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.dataset.misc">misc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fusion.dataset.misc.SetId"><code class="docutils literal notranslate"><span class="pre">SetId</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.dataset.utils">utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fusion.dataset.utils.seed_worker"><code class="docutils literal notranslate"><span class="pre">seed_worker()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../fusion.html">fusion</a></li>
+      <li class="breadcrumb-item active">dataset</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/fusion/dataset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dataset">
+<h1>dataset<a class="headerlink" href="#dataset" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dataset/mnist_svhn.html">mnist_svhn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset/mnist_svhn/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/mnist_svhn/tests.html#module-fusion.dataset.mnist_svhn.tests.test_mnist_svhn">test_mnist_svhn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/mnist_svhn/tests.html#fusion.dataset.mnist_svhn.tests.test_mnist_svhn.TestMnistSvhn"><code class="docutils literal notranslate"><span class="pre">TestMnistSvhn</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/mnist_svhn.html#id1">mnist_svhn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.mnist_svhn.MnistSvhn"><code class="docutils literal notranslate"><span class="pre">MnistSvhn</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.mnist_svhn.MnistSvhn.load"><code class="docutils literal notranslate"><span class="pre">MnistSvhn.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/mnist_svhn.html#module-fusion.dataset.mnist_svhn.transforms">transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.transforms.MNISTTransform"><code class="docutils literal notranslate"><span class="pre">MNISTTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.transforms.SVHNTransform"><code class="docutils literal notranslate"><span class="pre">SVHNTransform</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dataset/oasis.html">oasis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset/oasis.html#id1">oasis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis"><code class="docutils literal notranslate"><span class="pre">Oasis</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis.affine"><code class="docutils literal notranslate"><span class="pre">Oasis.affine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis.header"><code class="docutils literal notranslate"><span class="pre">Oasis.header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis.load"><code class="docutils literal notranslate"><span class="pre">Oasis.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis.mask"><code class="docutils literal notranslate"><span class="pre">Oasis.mask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis.orientation"><code class="docutils literal notranslate"><span class="pre">Oasis.orientation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/oasis.html#module-fusion.dataset.oasis.transforms">transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.MNIMaskTransform"><code class="docutils literal notranslate"><span class="pre">MNIMaskTransform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.MNIMaskTransform.apply_transform"><code class="docutils literal notranslate"><span class="pre">MNIMaskTransform.apply_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.MNIMaskTransform.process_volume"><code class="docutils literal notranslate"><span class="pre">MNIMaskTransform.process_volume()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.VolumetricRandomCrop"><code class="docutils literal notranslate"><span class="pre">VolumetricRandomCrop</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.VolumetricRandomCrop.apply_transform"><code class="docutils literal notranslate"><span class="pre">VolumetricRandomCrop.apply_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/oasis.html#fusion.dataset.oasis.transforms.VolumetricRandomCrop.process_volume"><code class="docutils literal notranslate"><span class="pre">VolumetricRandomCrop.process_volume()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dataset/two_view_mnist.html">two_view_mnist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset/two_view_mnist/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist/tests.html#module-fusion.dataset.two_view_mnist.tests.test_two_view_mnist">test_two_view_mnist</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/two_view_mnist/tests.html#fusion.dataset.two_view_mnist.tests.test_two_view_mnist.TestTwoViewMnist"><code class="docutils literal notranslate"><span class="pre">TestTwoViewMnist</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/two_view_mnist.html#module-fusion.dataset.two_view_mnist.transforms">transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.RandomRotation"><code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.RandomRotationTransform"><code class="docutils literal notranslate"><span class="pre">RandomRotationTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.TwoViewMnistTransform"><code class="docutils literal notranslate"><span class="pre">TwoViewMnistTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UniformNoise"><code class="docutils literal notranslate"><span class="pre">UniformNoise</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UniformNoiseTransform"><code class="docutils literal notranslate"><span class="pre">UniformNoiseTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UnitIntervalScale"><code class="docutils literal notranslate"><span class="pre">UnitIntervalScale</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/two_view_mnist.html#id1">two_view_mnist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.two_view_mnist.TwoViewMnist"><code class="docutils literal notranslate"><span class="pre">TwoViewMnist</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.two_view_mnist.TwoViewMnist.load"><code class="docutils literal notranslate"><span class="pre">TwoViewMnist.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dataset/ukbiobank.html">ukbiobank</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank/tests.html#module-fusion.dataset.ukbiobank.tests.test_ukbiobank">test_ukbiobank</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank/tests.html#fusion.dataset.ukbiobank.tests.test_ukbiobank.TestUKBioBank"><code class="docutils literal notranslate"><span class="pre">TestUKBioBank</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.transforms">transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur.apply_blur"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur.apply_blur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur.apply_transform"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur.apply_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur.blur"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur.blur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur.get_params"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur.get_params()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#id1">ukbiobank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank.UKBioBank"><code class="docutils literal notranslate"><span class="pre">UKBioBank</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank.UKBioBank.label_2_name"><code class="docutils literal notranslate"><span class="pre">UKBioBank.label_2_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank.UKBioBank.load"><code class="docutils literal notranslate"><span class="pre">UKBioBank.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_agp">ukbiobank_agp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_agp.UKBioBankAGP"><code class="docutils literal notranslate"><span class="pre">UKBioBankAGP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_mp">ukbiobank_mp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_mp.UKBioBankMP"><code class="docutils literal notranslate"><span class="pre">UKBioBankMP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_mp_ram">ukbiobank_mp_ram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_mp_ram.UKBioBankMPRAM"><code class="docutils literal notranslate"><span class="pre">UKBioBankMPRAM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_ram">ukbiobank_ram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_ram.UKBioBankRAM"><code class="docutils literal notranslate"><span class="pre">UKBioBankRAM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-fusion.dataset.abasedataset">
+<span id="abasedataset"></span><h2>abasedataset<a class="headerlink" href="#module-fusion.dataset.abasedataset" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.dataset.abasedataset.</span></span><span class="sig-name descname"><span class="pre">ABaseDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">343</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefetch_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_prefetches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset.get_all_loaders">
+<span class="sig-name descname"><span class="pre">get_all_loaders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataLoader</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset.get_all_loaders" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary with data loaders</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset.get_cv_loaders">
+<span class="sig-name descname"><span class="pre">get_cv_loaders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataLoader</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset.get_cv_loaders" title="Permalink to this definition"></a></dt>
+<dd><p>Returns dictionary with cross-validation loaders</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset.get_loader">
+<span class="sig-name descname"><span class="pre">get_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataLoader</span></span></span><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset.get_loader" title="Permalink to this definition"></a></dt>
+<dd><p>Returns loader with specific set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>set_id</strong> (<em>SetID</em>) – “‘TRAIN’, ‘VALID’, ‘TEST’”</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset.load">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset.load" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the dataset</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fusion.dataset.abasedataset.ABaseDataset.num_classes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_classes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#fusion.dataset.abasedataset.ABaseDataset.num_classes" title="Permalink to this definition"></a></dt>
+<dd><p>Number of classes</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.dataset.abasetransform">
+<span id="abasetransform"></span><h2>abasetransform<a class="headerlink" href="#module-fusion.dataset.abasetransform" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.dataset.abasetransform.ABaseTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.dataset.abasetransform.</span></span><span class="sig-name descname"><span class="pre">ABaseTransform</span></span><a class="headerlink" href="#fusion.dataset.abasetransform.ABaseTransform" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-fusion.dataset.dataset_provider">
+<span id="dataset-provider"></span><h2>dataset_provider<a class="headerlink" href="#module-fusion.dataset.dataset_provider" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-fusion.dataset.misc">
+<span id="misc"></span><h2>misc<a class="headerlink" href="#module-fusion.dataset.misc" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.dataset.misc.SetId">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.dataset.misc.</span></span><span class="sig-name descname"><span class="pre">SetId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.dataset.misc.SetId" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LowercaseStrEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.dataset.misc.SetId.INFER">
+<span class="sig-name descname"><span class="pre">INFER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'infer'</span></em><a class="headerlink" href="#fusion.dataset.misc.SetId.INFER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.dataset.misc.SetId.TEST">
+<span class="sig-name descname"><span class="pre">TEST</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'test'</span></em><a class="headerlink" href="#fusion.dataset.misc.SetId.TEST" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.dataset.misc.SetId.TRAIN">
+<span class="sig-name descname"><span class="pre">TRAIN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'train'</span></em><a class="headerlink" href="#fusion.dataset.misc.SetId.TRAIN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fusion.dataset.misc.SetId.VALID">
+<span class="sig-name descname"><span class="pre">VALID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#fusion.dataset.misc.SetId" title="fusion.dataset.misc.SetId"><span class="pre">SetId</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'valid'</span></em><a class="headerlink" href="#fusion.dataset.misc.SetId.VALID" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-fusion.dataset.utils">
+<span id="utils"></span><h2>utils<a class="headerlink" href="#module-fusion.dataset.utils" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="fusion.dataset.utils.seed_worker">
+<span class="sig-prename descclassname"><span class="pre">fusion.dataset.utils.</span></span><span class="sig-name descname"><span class="pre">seed_worker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.dataset.utils.seed_worker" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="criterion/misc/mmvae.html" class="btn btn-neutral float-left" title="mmvae" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dataset/mnist_svhn.html" class="btn btn-neutral float-right" title="mnist_svhn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

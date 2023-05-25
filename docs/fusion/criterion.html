@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>criterion &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="loss" href="criterion/loss.html" />
+    <link rel="prev" title="tests" href="architecture/projection_head/tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">architecture</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">criterion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html">loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator.html">mi_estimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/misc.html">misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fusion.criterion.criterion_provider">criterion_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../fusion.html">fusion</a></li>
+      <li class="breadcrumb-item active">criterion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/fusion/criterion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="criterion">
+<h1>criterion<a class="headerlink" href="#criterion" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="criterion/loss.html">loss</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss/dim.html">dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim/tests.html#module-fusion.criterion.loss.dim.tests.test_dim">test_dim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim.html#module-fusion.criterion.loss.dim.base_dim">base_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim.html#fusion.criterion.loss.dim.base_dim.BaseDim"><code class="docutils literal notranslate"><span class="pre">BaseDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim.html#module-fusion.criterion.loss.dim.cc_dim">cc_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim.html#fusion.criterion.loss.dim.cc_dim.CcDim"><code class="docutils literal notranslate"><span class="pre">CcDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim.html#module-fusion.criterion.loss.dim.cr_dim">cr_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim.html#fusion.criterion.loss.dim.cr_dim.CrDim"><code class="docutils literal notranslate"><span class="pre">CrDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim.html#module-fusion.criterion.loss.dim.rr_dim">rr_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim.html#fusion.criterion.loss.dim.rr_dim.RrDim"><code class="docutils literal notranslate"><span class="pre">RrDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/dim.html#module-fusion.criterion.loss.dim.xx_dim">xx_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/dim.html#fusion.criterion.loss.dim.xx_dim.XxDim"><code class="docutils literal notranslate"><span class="pre">XxDim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_cr_cca">test_cr_cca</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/tests.html#fusion.criterion.loss.tests.test_cr_cca.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_dccae">test_dccae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/tests.html#fusion.criterion.loss.tests.test_dccae.TestDCCAE"><code class="docutils literal notranslate"><span class="pre">TestDCCAE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_rr_ae">test_rr_ae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/tests.html#fusion.criterion.loss.tests.test_rr_ae.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_spatial_multi_dim">test_spatial_multi_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/tests.html#fusion.criterion.loss.tests.test_spatial_multi_dim.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_volumetric_multi_dim">test_volumetric_multi_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss/tests.html#fusion.criterion.loss.tests.test_volumetric_multi_dim.TestSpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">TestSpatialMultiDim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.abaseloss">abaseloss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.abaseloss.ABaseLoss"><code class="docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.abaseloss.ABaseLoss.forward"><code class="docutils literal notranslate"><span class="pre">ABaseLoss.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.abaseloss.ABaseLoss.training"><code class="docutils literal notranslate"><span class="pre">ABaseLoss.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.ae">ae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.ae.AE"><code class="docutils literal notranslate"><span class="pre">AE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.ae.AE.forward"><code class="docutils literal notranslate"><span class="pre">AE.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.ae.AE.training"><code class="docutils literal notranslate"><span class="pre">AE.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.cr_cca">cr_cca</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.cr_cca.CR_CCA"><code class="docutils literal notranslate"><span class="pre">CR_CCA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.cr_cca.CR_CCA.forward"><code class="docutils literal notranslate"><span class="pre">CR_CCA.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.cr_cca.CR_CCA.training"><code class="docutils literal notranslate"><span class="pre">CR_CCA.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.cr_cca.choose_multi_dim"><code class="docutils literal notranslate"><span class="pre">choose_multi_dim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.dccae">dccae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.dccae.DCCAE"><code class="docutils literal notranslate"><span class="pre">DCCAE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.dccae.DCCAE.forward"><code class="docutils literal notranslate"><span class="pre">DCCAE.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.dccae.DCCAE.training"><code class="docutils literal notranslate"><span class="pre">DCCAE.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.multi_dim">multi_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.MultiDim"><code class="docutils literal notranslate"><span class="pre">MultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.MultiDim.forward"><code class="docutils literal notranslate"><span class="pre">MultiDim.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.MultiDim.training"><code class="docutils literal notranslate"><span class="pre">MultiDim.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.SpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">SpatialMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.SpatialMultiDim.training"><code class="docutils literal notranslate"><span class="pre">SpatialMultiDim.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.VolumetricMultiDim"><code class="docutils literal notranslate"><span class="pre">VolumetricMultiDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.multi_dim.VolumetricMultiDim.training"><code class="docutils literal notranslate"><span class="pre">VolumetricMultiDim.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.pixl">pixl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pixl.PIXL"><code class="docutils literal notranslate"><span class="pre">PIXL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pixl.PIXL.forward"><code class="docutils literal notranslate"><span class="pre">PIXL.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pixl.PIXL.training"><code class="docutils literal notranslate"><span class="pre">PIXL.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.pytorch_wrappers">pytorch_wrappers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">BCEWithLogitsLoss</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.forward"><code class="docutils literal notranslate"><span class="pre">BCEWithLogitsLoss.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss.training"><code class="docutils literal notranslate"><span class="pre">BCEWithLogitsLoss.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss"><code class="docutils literal notranslate"><span class="pre">CustomCrossEntropyLoss</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.forward"><code class="docutils literal notranslate"><span class="pre">CustomCrossEntropyLoss.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss.training"><code class="docutils literal notranslate"><span class="pre">CustomCrossEntropyLoss.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.rr_ae">rr_ae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.rr_ae.RR_AE"><code class="docutils literal notranslate"><span class="pre">RR_AE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.rr_ae.RR_AE.forward"><code class="docutils literal notranslate"><span class="pre">RR_AE.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.rr_ae.RR_AE.training"><code class="docutils literal notranslate"><span class="pre">RR_AE.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.supcon">supcon</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupCon"><code class="docutils literal notranslate"><span class="pre">SupCon</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupCon.forward"><code class="docutils literal notranslate"><span class="pre">SupCon.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupCon.training"><code class="docutils literal notranslate"><span class="pre">SupCon.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupConLoss"><code class="docutils literal notranslate"><span class="pre">SupConLoss</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupConLoss.forward"><code class="docutils literal notranslate"><span class="pre">SupConLoss.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon.SupConLoss.training"><code class="docutils literal notranslate"><span class="pre">SupConLoss.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/loss.html#module-fusion.criterion.loss.supcon_dim">supcon_dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConDim"><code class="docutils literal notranslate"><span class="pre">SupConDim</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConDim.forward"><code class="docutils literal notranslate"><span class="pre">SupConDim.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConDim.training"><code class="docutils literal notranslate"><span class="pre">SupConDim.training</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConLoss"><code class="docutils literal notranslate"><span class="pre">SupConLoss</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConLoss.forward"><code class="docutils literal notranslate"><span class="pre">SupConLoss.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConLoss.training"><code class="docutils literal notranslate"><span class="pre">SupConLoss.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="criterion/mi_estimator.html">mi_estimator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator/clip.html">clip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/clip/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/clip/tests.html#module-fusion.criterion.mi_estimator.clip.tests.test_clips">test_clips</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.base_clip">base_clip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/clip.html#fusion.criterion.mi_estimator.clip.base_clip.ABaseClip"><code class="docutils literal notranslate"><span class="pre">ABaseClip</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.tahn_clip">tahn_clip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/clip.html#fusion.criterion.mi_estimator.clip.tahn_clip.TahnClip"><code class="docutils literal notranslate"><span class="pre">TahnClip</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator/critic.html">critic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/critic/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/critic/tests.html#module-fusion.criterion.mi_estimator.critic.tests.test_separable_critics">test_separable_critics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.base_critic">base_critic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.base_critic.ABaseCritic"><code class="docutils literal notranslate"><span class="pre">ABaseCritic</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.separable_critic">separable_critic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.CosineSimilarity"><code class="docutils literal notranslate"><span class="pre">CosineSimilarity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.ScaledDotProduct"><code class="docutils literal notranslate"><span class="pre">ScaledDotProduct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/critic.html#fusion.criterion.mi_estimator.critic.separable_critic.SeparableCritic"><code class="docutils literal notranslate"><span class="pre">SeparableCritic</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator/measure.html">measure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/measure.html#module-fusion.criterion.mi_estimator.measure.base_measure">base_measure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure"><code class="docutils literal notranslate"><span class="pre">DVMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure"><code class="docutils literal notranslate"><span class="pre">GanMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.H2Measure"><code class="docutils literal notranslate"><span class="pre">H2Measure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure"><code class="docutils literal notranslate"><span class="pre">JsdMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure"><code class="docutils literal notranslate"><span class="pre">KLMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure"><code class="docutils literal notranslate"><span class="pre">RKLMeasure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.W1Measure"><code class="docutils literal notranslate"><span class="pre">W1Measure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.X2Measure"><code class="docutils literal notranslate"><span class="pre">X2Measure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/measure.html#fusion.criterion.mi_estimator.measure.base_measure.log_sum_exp"><code class="docutils literal notranslate"><span class="pre">log_sum_exp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator/penalty.html">penalty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/penalty/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/penalty/tests.html#module-fusion.criterion.mi_estimator.penalty.tests.test_penalties">test_penalties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.base_penalty">base_penalty</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/penalty.html#fusion.criterion.mi_estimator.penalty.base_penalty.ABasePenalty"><code class="docutils literal notranslate"><span class="pre">ABasePenalty</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.l2_penalty">l2_penalty</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/penalty.html#fusion.criterion.mi_estimator.penalty.l2_penalty.L2Penalty"><code class="docutils literal notranslate"><span class="pre">L2Penalty</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator/tests.html">tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator/tests.html#module-fusion.criterion.mi_estimator.tests.test_estimators">test_estimators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/mi_estimator/tests.html#fusion.criterion.mi_estimator.tests.test_estimators.TestMIEstimators"><code class="docutils literal notranslate"><span class="pre">TestMIEstimators</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.base_mi_estimator">base_mi_estimator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator.html#fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator"><code class="docutils literal notranslate"><span class="pre">ABaseMIEstimator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.fenchel_dual">fenchel_dual</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator.html#fusion.criterion.mi_estimator.fenchel_dual.FenchelDualEstimator"><code class="docutils literal notranslate"><span class="pre">FenchelDualEstimator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.infonce">infonce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/mi_estimator.html#fusion.criterion.mi_estimator.infonce.InfoNceEstimator"><code class="docutils literal notranslate"><span class="pre">InfoNceEstimator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="criterion/misc.html">misc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="criterion/misc/cca.html">cca package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/misc/cca/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/misc/cca/tests.html#module-fusion.criterion.misc.cca.tests.test_canonical_correlation">test_canonical_correlation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="criterion/misc/cca.html#module-fusion.criterion.misc.cca.canonical_correlation">canonical_correlation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="criterion/misc/cca.html#fusion.criterion.misc.cca.canonical_correlation.CanonicalCorrelation"><code class="docutils literal notranslate"><span class="pre">CanonicalCorrelation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/misc/mmvae.html">mmvae</a></li>
+<li class="toctree-l2"><a class="reference internal" href="criterion/misc.html#module-fusion.criterion.misc.utils">utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="criterion/misc.html#fusion.criterion.misc.utils.total_loss_summation"><code class="docutils literal notranslate"><span class="pre">total_loss_summation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-fusion.criterion.criterion_provider">
+<span id="criterion-provider"></span><h2>criterion_provider<a class="headerlink" href="#module-fusion.criterion.criterion_provider" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="architecture/projection_head/tests.html" class="btn btn-neutral float-left" title="tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="criterion/loss.html" class="btn btn-neutral float-right" title="loss" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

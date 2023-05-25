@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>measure &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="penalty" href="penalty.html" />
+    <link rel="prev" title="tests" href="critic/tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../fusion.html">fusion</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html">architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../criterion.html">criterion</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../loss.html">loss</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../mi_estimator.html">mi_estimator</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="critic.html">critic</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="penalty.html">penalty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mi_estimator.html#module-fusion.criterion.mi_estimator.base_mi_estimator">base_mi_estimator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mi_estimator.html#module-fusion.criterion.mi_estimator.fenchel_dual">fenchel_dual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mi_estimator.html#module-fusion.criterion.mi_estimator.infonce">infonce</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../misc.html">misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../criterion.html#module-fusion.criterion.criterion_provider">criterion_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../fusion.html">fusion</a></li>
+          <li class="breadcrumb-item"><a href="../../criterion.html">criterion</a></li>
+          <li class="breadcrumb-item"><a href="../mi_estimator.html">mi_estimator</a></li>
+      <li class="breadcrumb-item active">measure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/fusion/criterion/mi_estimator/measure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="measure">
+<h1>measure<a class="headerlink" href="#measure" title="Permalink to this heading"></a></h1>
+<section id="module-fusion.criterion.mi_estimator.measure.base_measure">
+<span id="base-measure"></span><h2>base_measure<a class="headerlink" href="#module-fusion.criterion.mi_estimator.measure.base_measure" title="Permalink to this heading"></a></h2>
+<p>BSD 3-Clause License</p>
+<p>Copyright (c) 2018, Devon Hjelm
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ul class="simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">ABaseMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_negative_expectation">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_positive_expectation">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.DVMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">DVMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.DVMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.GanMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">GanMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.GanMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.H2Measure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">H2Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.H2Measure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.H2Measure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">JsdMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.JsdMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.KLMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">KLMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.KLMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">RKLMeasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.RKLMeasure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.W1Measure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">W1Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.W1Measure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.W1Measure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.X2Measure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">X2Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.X2Measure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure" title="fusion.criterion.mi_estimator.measure.base_measure.ABaseMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABaseMeasure</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_negative_expectation">
+<span class="sig-name descname"><span class="pre">get_negative_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_negative_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_positive_expectation">
+<span class="sig-name descname"><span class="pre">get_positive_expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.X2Measure.get_positive_expectation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fusion.criterion.mi_estimator.measure.base_measure.log_sum_exp">
+<span class="sig-prename descclassname"><span class="pre">fusion.criterion.mi_estimator.measure.base_measure.</span></span><span class="sig-name descname"><span class="pre">log_sum_exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fusion.criterion.mi_estimator.measure.base_measure.log_sum_exp" title="Permalink to this definition"></a></dt>
+<dd><p>Log sum exp function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – Input.</p></li>
+<li><p><strong>axis</strong> – Axis over which to perform sum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>log sum exp</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>torch.Tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="critic/tests.html" class="btn btn-neutral float-left" title="tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="penalty.html" class="btn btn-neutral float-right" title="penalty" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

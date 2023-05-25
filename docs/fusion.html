@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fusion &mdash; fusion  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="architecture" href="fusion/architecture.html" />
+    <link rel="prev" title="Tutorials" href="getting_started/tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            fusion
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture.html">architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/criterion.html">criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html">dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/experiment.html">experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/optimizer.html">optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/runner.html">runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/scheduler.html">scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task.html">task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">fusion</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">fusion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fusion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fusion">
+<h1>fusion<a class="headerlink" href="#fusion" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fusion/architecture.html">architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture/alexnet.html">alexnet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/alexnet/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/alexnet/tests.html#module-fusion.architecture.alexnet.tests.test_alexnet_encoder">test_alexnet_encoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/alexnet/tests.html#module-fusion.architecture.alexnet.tests.test_anees_alexnet">test_anees_alexnet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/alexnet.html#module-fusion.architecture.alexnet.alexnet_encoder">alexnet_encoder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/alexnet.html#fusion.architecture.alexnet.alexnet_encoder.AlexNetEncoder"><code class="docutils literal notranslate"><span class="pre">AlexNetEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/alexnet.html#module-fusion.architecture.alexnet.anees_alexnet">anees_alexnet</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/alexnet.html#fusion.architecture.alexnet.anees_alexnet.AneesAlexNet"><code class="docutils literal notranslate"><span class="pre">AneesAlexNet</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture/base_block.html">base_block</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/base_block/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/base_block/tests.html#module-fusion.architecture.base_block.tests.test_base_conv_layer">test_base_conv_layer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/base_block.html#module-fusion.architecture.base_block.base_conv_layer">base_conv_layer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/base_block.html#fusion.architecture.base_block.base_conv_layer.BaseConvLayer"><code class="docutils literal notranslate"><span class="pre">BaseConvLayer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/base_block.html#module-fusion.architecture.base_block.utils">utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/base_block.html#fusion.architecture.base_block.utils.Flatten"><code class="docutils literal notranslate"><span class="pre">Flatten</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/base_block.html#fusion.architecture.base_block.utils.Unflatten"><code class="docutils literal notranslate"><span class="pre">Unflatten</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture/dcgan.html">dcgan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/dcgan/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan/tests.html#module-fusion.architecture.dcgan.tests.test_dcgan_autoencoder">test_dcgan_autoencoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan/tests.html#module-fusion.architecture.dcgan.tests.test_dcgan_decoder">test_dcgan_decoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan/tests.html#module-fusion.architecture.dcgan.tests.test_dcgan_encoder">test_dcgan_encoder</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/dcgan.html#module-fusion.architecture.dcgan.dcgan_autoencoder">dcgan_autoencoder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan.html#fusion.architecture.dcgan.dcgan_autoencoder.DcganAutoEncoder"><code class="docutils literal notranslate"><span class="pre">DcganAutoEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/dcgan.html#module-fusion.architecture.dcgan.dcgan_decoder">dcgan_decoder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan.html#fusion.architecture.dcgan.dcgan_decoder.DcganDecoder"><code class="docutils literal notranslate"><span class="pre">DcganDecoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/dcgan.html#module-fusion.architecture.dcgan.dcgan_encoder">dcgan_encoder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/dcgan.html#fusion.architecture.dcgan.dcgan_encoder.DcganEncoder"><code class="docutils literal notranslate"><span class="pre">DcganEncoder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture/projection_head.html">projection_head</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/projection_head/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/projection_head/tests.html#module-fusion.architecture.projection_head.tests.test_conv_head">test_conv_head module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/projection_head/tests.html#module-fusion.architecture.projection_head.tests.test_latent_head">test_latent_head module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/projection_head.html#module-fusion.architecture.projection_head.conv_head">conv_head module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/projection_head.html#fusion.architecture.projection_head.conv_head.ConvHead"><code class="docutils literal notranslate"><span class="pre">ConvHead</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture/projection_head.html#module-fusion.architecture.projection_head.latent_head">latent_head module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture/projection_head.html#fusion.architecture.projection_head.latent_head.LatentHead"><code class="docutils literal notranslate"><span class="pre">LatentHead</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture.html#module-fusion.architecture.abasearchitecture">abasearchitecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/architecture.html#fusion.architecture.abasearchitecture.ABaseArchitecture"><code class="docutils literal notranslate"><span class="pre">ABaseArchitecture</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture.html#fusion.architecture.abasearchitecture.ABaseArchitecture.get_layers"><code class="docutils literal notranslate"><span class="pre">ABaseArchitecture.get_layers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture.html#fusion.architecture.abasearchitecture.ABaseArchitecture.init_weights"><code class="docutils literal notranslate"><span class="pre">ABaseArchitecture.init_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/architecture.html#fusion.architecture.abasearchitecture.ABaseArchitecture.training"><code class="docutils literal notranslate"><span class="pre">ABaseArchitecture.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/architecture.html#module-fusion.architecture.architecture_provider">architecture_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/criterion.html">criterion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/criterion/loss.html">loss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss/dim.html">dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim.html#module-fusion.criterion.loss.dim.base_dim">base_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim.html#module-fusion.criterion.loss.dim.cc_dim">cc_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim.html#module-fusion.criterion.loss.dim.cr_dim">cr_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim.html#module-fusion.criterion.loss.dim.rr_dim">rr_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/dim.html#module-fusion.criterion.loss.dim.xx_dim">xx_dim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_cr_cca">test_cr_cca</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_dccae">test_dccae</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_rr_ae">test_rr_ae</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_spatial_multi_dim">test_spatial_multi_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss/tests.html#module-fusion.criterion.loss.tests.test_volumetric_multi_dim">test_volumetric_multi_dim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.abaseloss">abaseloss</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.abaseloss.ABaseLoss"><code class="docutils literal notranslate"><span class="pre">ABaseLoss</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.ae">ae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.ae.AE"><code class="docutils literal notranslate"><span class="pre">AE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.cr_cca">cr_cca</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.cr_cca.CR_CCA"><code class="docutils literal notranslate"><span class="pre">CR_CCA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.cr_cca.choose_multi_dim"><code class="docutils literal notranslate"><span class="pre">choose_multi_dim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.dccae">dccae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.dccae.DCCAE"><code class="docutils literal notranslate"><span class="pre">DCCAE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.multi_dim">multi_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.multi_dim.MultiDim"><code class="docutils literal notranslate"><span class="pre">MultiDim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.multi_dim.SpatialMultiDim"><code class="docutils literal notranslate"><span class="pre">SpatialMultiDim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.multi_dim.VolumetricMultiDim"><code class="docutils literal notranslate"><span class="pre">VolumetricMultiDim</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.pixl">pixl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.pixl.PIXL"><code class="docutils literal notranslate"><span class="pre">PIXL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.pytorch_wrappers">pytorch_wrappers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.BCEWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">BCEWithLogitsLoss</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.pytorch_wrappers.CustomCrossEntropyLoss"><code class="docutils literal notranslate"><span class="pre">CustomCrossEntropyLoss</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.rr_ae">rr_ae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.rr_ae.RR_AE"><code class="docutils literal notranslate"><span class="pre">RR_AE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.supcon">supcon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.supcon.SupCon"><code class="docutils literal notranslate"><span class="pre">SupCon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.supcon.SupConLoss"><code class="docutils literal notranslate"><span class="pre">SupConLoss</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/loss.html#module-fusion.criterion.loss.supcon_dim">supcon_dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConDim"><code class="docutils literal notranslate"><span class="pre">SupConDim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/loss.html#fusion.criterion.loss.supcon_dim.SupConLoss"><code class="docutils literal notranslate"><span class="pre">SupConLoss</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/criterion/mi_estimator.html">mi_estimator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator/clip.html">clip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/clip/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.base_clip">base_clip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/clip.html#module-fusion.criterion.mi_estimator.clip.tahn_clip">tahn_clip</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator/critic.html">critic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/critic/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.base_critic">base_critic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/critic.html#module-fusion.criterion.mi_estimator.critic.separable_critic">separable_critic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator/measure.html">measure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/measure.html#module-fusion.criterion.mi_estimator.measure.base_measure">base_measure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator/penalty.html">penalty</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/penalty/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.base_penalty">base_penalty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/penalty.html#module-fusion.criterion.mi_estimator.penalty.l2_penalty">l2_penalty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator/tests.html#module-fusion.criterion.mi_estimator.tests.test_estimators">test_estimators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.base_mi_estimator">base_mi_estimator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator.html#fusion.criterion.mi_estimator.base_mi_estimator.ABaseMIEstimator"><code class="docutils literal notranslate"><span class="pre">ABaseMIEstimator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.fenchel_dual">fenchel_dual</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator.html#fusion.criterion.mi_estimator.fenchel_dual.FenchelDualEstimator"><code class="docutils literal notranslate"><span class="pre">FenchelDualEstimator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/mi_estimator.html#module-fusion.criterion.mi_estimator.infonce">infonce</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/mi_estimator.html#fusion.criterion.mi_estimator.infonce.InfoNceEstimator"><code class="docutils literal notranslate"><span class="pre">InfoNceEstimator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/criterion/misc.html">misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/misc/cca.html">cca package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/misc/cca/tests.html">tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/misc/cca.html#module-fusion.criterion.misc.cca.canonical_correlation">canonical_correlation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/misc/mmvae.html">mmvae</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/criterion/misc.html#module-fusion.criterion.misc.utils">utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/criterion/misc.html#fusion.criterion.misc.utils.total_loss_summation"><code class="docutils literal notranslate"><span class="pre">total_loss_summation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/criterion.html#module-fusion.criterion.criterion_provider">criterion_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/dataset.html">dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset/mnist_svhn.html">mnist_svhn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/mnist_svhn/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/mnist_svhn/tests.html#module-fusion.dataset.mnist_svhn.tests.test_mnist_svhn">test_mnist_svhn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/mnist_svhn.html#id1">mnist_svhn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.mnist_svhn.MnistSvhn"><code class="docutils literal notranslate"><span class="pre">MnistSvhn</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/mnist_svhn.html#module-fusion.dataset.mnist_svhn.transforms">transforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.transforms.MNISTTransform"><code class="docutils literal notranslate"><span class="pre">MNISTTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/mnist_svhn.html#fusion.dataset.mnist_svhn.transforms.SVHNTransform"><code class="docutils literal notranslate"><span class="pre">SVHNTransform</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset/oasis.html">oasis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/oasis.html#id1">oasis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/oasis.html#fusion.dataset.oasis.oasis.Oasis"><code class="docutils literal notranslate"><span class="pre">Oasis</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/oasis.html#module-fusion.dataset.oasis.transforms">transforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/oasis.html#fusion.dataset.oasis.transforms.MNIMaskTransform"><code class="docutils literal notranslate"><span class="pre">MNIMaskTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/oasis.html#fusion.dataset.oasis.transforms.VolumetricRandomCrop"><code class="docutils literal notranslate"><span class="pre">VolumetricRandomCrop</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset/two_view_mnist.html">two_view_mnist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/two_view_mnist/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist/tests.html#module-fusion.dataset.two_view_mnist.tests.test_two_view_mnist">test_two_view_mnist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#module-fusion.dataset.two_view_mnist.transforms">transforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.RandomRotation"><code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.RandomRotationTransform"><code class="docutils literal notranslate"><span class="pre">RandomRotationTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.TwoViewMnistTransform"><code class="docutils literal notranslate"><span class="pre">TwoViewMnistTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UniformNoise"><code class="docutils literal notranslate"><span class="pre">UniformNoise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UniformNoiseTransform"><code class="docutils literal notranslate"><span class="pre">UniformNoiseTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.transforms.UnitIntervalScale"><code class="docutils literal notranslate"><span class="pre">UnitIntervalScale</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#id1">two_view_mnist</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/two_view_mnist.html#fusion.dataset.two_view_mnist.two_view_mnist.TwoViewMnist"><code class="docutils literal notranslate"><span class="pre">TwoViewMnist</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset/ukbiobank.html">ukbiobank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank/tests.html#module-fusion.dataset.ukbiobank.tests.test_ukbiobank">test_ukbiobank</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.transforms">transforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.transforms.CustomRandomBlur"><code class="docutils literal notranslate"><span class="pre">CustomRandomBlur</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#id1">ukbiobank</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank.UKBioBank"><code class="docutils literal notranslate"><span class="pre">UKBioBank</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_agp">ukbiobank_agp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_agp.UKBioBankAGP"><code class="docutils literal notranslate"><span class="pre">UKBioBankAGP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_mp">ukbiobank_mp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_mp.UKBioBankMP"><code class="docutils literal notranslate"><span class="pre">UKBioBankMP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_mp_ram">ukbiobank_mp_ram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_mp_ram.UKBioBankMPRAM"><code class="docutils literal notranslate"><span class="pre">UKBioBankMPRAM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset/ukbiobank.html#module-fusion.dataset.ukbiobank.ukbiobank_ram">ukbiobank_ram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset/ukbiobank.html#fusion.dataset.ukbiobank.ukbiobank_ram.UKBioBankRAM"><code class="docutils literal notranslate"><span class="pre">UKBioBankRAM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html#module-fusion.dataset.abasedataset">abasedataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset"><code class="docutils literal notranslate"><span class="pre">ABaseDataset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset.get_all_loaders"><code class="docutils literal notranslate"><span class="pre">ABaseDataset.get_all_loaders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset.get_cv_loaders"><code class="docutils literal notranslate"><span class="pre">ABaseDataset.get_cv_loaders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset.get_loader"><code class="docutils literal notranslate"><span class="pre">ABaseDataset.get_loader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset.load"><code class="docutils literal notranslate"><span class="pre">ABaseDataset.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasedataset.ABaseDataset.num_classes"><code class="docutils literal notranslate"><span class="pre">ABaseDataset.num_classes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html#module-fusion.dataset.abasetransform">abasetransform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.abasetransform.ABaseTransform"><code class="docutils literal notranslate"><span class="pre">ABaseTransform</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html#module-fusion.dataset.dataset_provider">dataset_provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html#module-fusion.dataset.misc">misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.misc.SetId"><code class="docutils literal notranslate"><span class="pre">SetId</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.misc.SetId.INFER"><code class="docutils literal notranslate"><span class="pre">SetId.INFER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.misc.SetId.TEST"><code class="docutils literal notranslate"><span class="pre">SetId.TEST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.misc.SetId.TRAIN"><code class="docutils literal notranslate"><span class="pre">SetId.TRAIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.misc.SetId.VALID"><code class="docutils literal notranslate"><span class="pre">SetId.VALID</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/dataset.html#module-fusion.dataset.utils">utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/dataset.html#fusion.dataset.utils.seed_worker"><code class="docutils literal notranslate"><span class="pre">seed_worker()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/experiment.html">experiment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/experiment.html#id1">experiment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/experiment.html#fusion.experiment.experiment.Experiment"><code class="docutils literal notranslate"><span class="pre">Experiment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/experiment.html#fusion.experiment.experiment.Experiment.setup_new_experiment"><code class="docutils literal notranslate"><span class="pre">Experiment.setup_new_experiment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/experiment.html#fusion.experiment.experiment.Experiment.start"><code class="docutils literal notranslate"><span class="pre">Experiment.start()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/model.html">model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/ae.html">ae</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/ae/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/ae/tests.html#module-fusion.model.ae.tests.test_ae">test_ae</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/ae.html#id1">ae</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/ae.html#fusion.model.ae.ae.AE"><code class="docutils literal notranslate"><span class="pre">AE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/dim.html">dim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/dim/tests.html">tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/dim/tests.html#module-fusion.model.dim.tests.test_dim">test_dim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/dim.html#id1">dim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/dim.html#fusion.model.dim.dim.Dim"><code class="docutils literal notranslate"><span class="pre">Dim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/encoder_extractor.html">encoder_extractor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/encoder_extractor.html#id1">encoder_extractor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/encoder_extractor.html#fusion.model.encoder_extractor.encoder_extractor.EncoderExtractor"><code class="docutils literal notranslate"><span class="pre">EncoderExtractor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/linear_evaluator.html">linear_evaluator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/linear_evaluator.html#id1">linear_evaluator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/linear_evaluator.html#fusion.model.linear_evaluator.linear_evaluator.LinearEvaluator"><code class="docutils literal notranslate"><span class="pre">LinearEvaluator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/misc.html">misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/pixl.html">pixl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/pixl.html#id1">pixl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/pixl.html#fusion.model.pixl.pixl.PIXL"><code class="docutils literal notranslate"><span class="pre">PIXL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/saliency.html">saliency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/saliency.html#module-fusion.model.saliency.smoothgrad">smoothgrad</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/saliency.html#fusion.model.saliency.smoothgrad.SmoothVanillaBackprop"><code class="docutils literal notranslate"><span class="pre">SmoothVanillaBackprop</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model/supervised.html">supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model/supervised.html#id1">supervised</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model/supervised.html#fusion.model.supervised.supervised.Supervised"><code class="docutils literal notranslate"><span class="pre">Supervised</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model.html#module-fusion.model.abasemodel">abasemodel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/model.html#fusion.model.abasemodel.ABaseModel"><code class="docutils literal notranslate"><span class="pre">ABaseModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model.html#fusion.model.abasemodel.ABaseModel.get_encoder"><code class="docutils literal notranslate"><span class="pre">ABaseModel.get_encoder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model.html#fusion.model.abasemodel.ABaseModel.get_encoder_list"><code class="docutils literal notranslate"><span class="pre">ABaseModel.get_encoder_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/model.html#fusion.model.abasemodel.ABaseModel.training"><code class="docutils literal notranslate"><span class="pre">ABaseModel.training</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/model.html#module-fusion.model.model_provider">model_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/optimizer.html">optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/optimizer.html#module-fusion.optimizer.optimizer_provider">optimizer_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/runner.html">runner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/runner/catalyst.html">catalyst</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/runner/catalyst.html#module-fusion.runner.catalyst.catalyst_runner">catalyst_runner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/runner/catalyst.html#fusion.runner.catalyst.catalyst_runner.CatalystRunner"><code class="docutils literal notranslate"><span class="pre">CatalystRunner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/runner/catalyst.html#module-fusion.runner.catalyst.mnist_svhn_runner">mnist_svhn_runner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/runner/catalyst.html#fusion.runner.catalyst.mnist_svhn_runner.MnistSvhnRunner"><code class="docutils literal notranslate"><span class="pre">MnistSvhnRunner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/runner/catalyst.html#module-fusion.runner.catalyst.oasis_runner">oasis_runner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/runner/catalyst.html#fusion.runner.catalyst.oasis_runner.OasisRunner"><code class="docutils literal notranslate"><span class="pre">OasisRunner</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/runner.html#module-fusion.runner.abaserunner">abaserunner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/runner.html#fusion.runner.abaserunner.ABaseRunner"><code class="docutils literal notranslate"><span class="pre">ABaseRunner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/runner.html#module-fusion.runner.runner_provider">runner_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/scheduler.html">scheduler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/scheduler.html#module-fusion.scheduler.scheduler_provider">scheduler_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/task.html">task</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/feature_extraction.html">feature_extraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/feature_extraction.html#module-fusion.task.feature_extraction.feature_extraction_task">feature_extraction_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/feature_extraction.html#fusion.task.feature_extraction.feature_extraction_task.FeatureExtractionTask"><code class="docutils literal notranslate"><span class="pre">FeatureExtractionTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/feature_extraction.html#fusion.task.feature_extraction.feature_extraction_task.FeatureExtractionTaskBuilder"><code class="docutils literal notranslate"><span class="pre">FeatureExtractionTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/inference.html">inference package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/inference.html#module-fusion.task.inference.inference_task">inference_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/inference.html#fusion.task.inference.inference_task.InferenceTask"><code class="docutils literal notranslate"><span class="pre">InferenceTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/inference.html#fusion.task.inference.inference_task.InferenceTaskBuilder"><code class="docutils literal notranslate"><span class="pre">InferenceTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/linear_evaluation.html">linear_evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/linear_evaluation.html#module-fusion.task.linear_evaluation.linear_evaluation_task">linear_evaluation_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/linear_evaluation.html#fusion.task.linear_evaluation.linear_evaluation_task.LinearEvaluationTask"><code class="docutils literal notranslate"><span class="pre">LinearEvaluationTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/linear_evaluation.html#fusion.task.linear_evaluation.linear_evaluation_task.LinearEvaluationTaskBuilder"><code class="docutils literal notranslate"><span class="pre">LinearEvaluationTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/logits_extraction.html">logits_extraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/logits_extraction.html#module-fusion.task.logits_extraction.logits_extraction_task">logits_extraction_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/logits_extraction.html#fusion.task.logits_extraction.logits_extraction_task.LogitsExtractionTask"><code class="docutils literal notranslate"><span class="pre">LogitsExtractionTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/logits_extraction.html#fusion.task.logits_extraction.logits_extraction_task.LogitsExtractionTaskBuilder"><code class="docutils literal notranslate"><span class="pre">LogitsExtractionTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/logreg_evaluation.html">logreg_evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/logreg_evaluation.html#module-fusion.task.logreg_evaluation.logreg_evaluation_task">logreg_evaluation_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/logreg_evaluation.html#fusion.task.logreg_evaluation.logreg_evaluation_task.CustomWeightsAndBiasesCallback"><code class="docutils literal notranslate"><span class="pre">CustomWeightsAndBiasesCallback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/logreg_evaluation.html#fusion.task.logreg_evaluation.logreg_evaluation_task.LogRegEvaluationTask"><code class="docutils literal notranslate"><span class="pre">LogRegEvaluationTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/logreg_evaluation.html#fusion.task.logreg_evaluation.logreg_evaluation_task.LogRegEvaluationTaskBuilder"><code class="docutils literal notranslate"><span class="pre">LogRegEvaluationTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/pretraining.html">pretraining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/pretraining.html#module-fusion.task.pretraining.pretraining_task">pretraining_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/pretraining.html#fusion.task.pretraining.pretraining_task.PretrainingTask"><code class="docutils literal notranslate"><span class="pre">PretrainingTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/pretraining.html#fusion.task.pretraining.pretraining_task.PretrainingTaskBuilder"><code class="docutils literal notranslate"><span class="pre">PretrainingTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/saliency.html">saliency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/saliency.html#id1">saliency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/saliency.html#fusion.task.saliency.saliency.SaliencyTask"><code class="docutils literal notranslate"><span class="pre">SaliencyTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/saliency.html#fusion.task.saliency.saliency.SaliencyTaskBuilder"><code class="docutils literal notranslate"><span class="pre">SaliencyTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task/tsne.html">tsne</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task/tsne.html#module-fusion.task.tsne.tsne_task">tsne_task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/tsne.html#fusion.task.tsne.tsne_task.TsneTask"><code class="docutils literal notranslate"><span class="pre">TsneTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task/tsne.html#fusion.task.tsne.tsne_task.TsneTaskBuilder"><code class="docutils literal notranslate"><span class="pre">TsneTaskBuilder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task.html#module-fusion.task.atask">atask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask"><code class="docutils literal notranslate"><span class="pre">ATask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.criterion"><code class="docutils literal notranslate"><span class="pre">ATask.criterion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.dataset"><code class="docutils literal notranslate"><span class="pre">ATask.dataset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.model"><code class="docutils literal notranslate"><span class="pre">ATask.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.optimizer"><code class="docutils literal notranslate"><span class="pre">ATask.optimizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.run"><code class="docutils literal notranslate"><span class="pre">ATask.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.runner"><code class="docutils literal notranslate"><span class="pre">ATask.runner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.scheduler"><code class="docutils literal notranslate"><span class="pre">ATask.scheduler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATask.task_args"><code class="docutils literal notranslate"><span class="pre">ATask.task_args</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_criterion"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_criterion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_dataset"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_model"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_optimizer"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_optimizer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_runner"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_runner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.add_scheduler"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.add_scheduler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.create_new_task"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.create_new_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.ATaskBuilder.task"><code class="docutils literal notranslate"><span class="pre">ATaskBuilder.task</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task.html#fusion.task.atask.TaskDirector"><code class="docutils literal notranslate"><span class="pre">TaskDirector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.TaskDirector.construct_task"><code class="docutils literal notranslate"><span class="pre">TaskDirector.construct_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.atask.TaskDirector.get_task"><code class="docutils literal notranslate"><span class="pre">TaskDirector.get_task()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task.html#module-fusion.task.misc">misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId"><code class="docutils literal notranslate"><span class="pre">TaskId</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.FEATURE_EXTRACTION"><code class="docutils literal notranslate"><span class="pre">TaskId.FEATURE_EXTRACTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.INFERENCE"><code class="docutils literal notranslate"><span class="pre">TaskId.INFERENCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.LINEAR_EVALUATION"><code class="docutils literal notranslate"><span class="pre">TaskId.LINEAR_EVALUATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.LOGITS_EXTRACTION"><code class="docutils literal notranslate"><span class="pre">TaskId.LOGITS_EXTRACTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.LOGREG_EVALUATION"><code class="docutils literal notranslate"><span class="pre">TaskId.LOGREG_EVALUATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.PRETRAINING"><code class="docutils literal notranslate"><span class="pre">TaskId.PRETRAINING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.SALIENCY"><code class="docutils literal notranslate"><span class="pre">TaskId.SALIENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/task.html#fusion.task.misc.TaskId.TSNE"><code class="docutils literal notranslate"><span class="pre">TaskId.TSNE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fusion/task.html#module-fusion.task.task_builder_provider">task_builder_provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fusion/utils.html">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fusion/utils.html#module-fusion.utils.object_provider">object_provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fusion/utils.html#fusion.utils.object_provider.Factory"><code class="docutils literal notranslate"><span class="pre">Factory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/utils.html#fusion.utils.object_provider.Factory.create"><code class="docutils literal notranslate"><span class="pre">Factory.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="fusion/utils.html#fusion.utils.object_provider.Factory.register_object"><code class="docutils literal notranslate"><span class="pre">Factory.register_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fusion/utils.html#fusion.utils.object_provider.ObjectProvider"><code class="docutils literal notranslate"><span class="pre">ObjectProvider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fusion/utils.html#fusion.utils.object_provider.ObjectProvider.get"><code class="docutils literal notranslate"><span class="pre">ObjectProvider.get()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started/tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fusion/architecture.html" class="btn btn-neutral float-right" title="architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Fedorov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
