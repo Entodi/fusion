@@ -1,0 +1,4 @@
+name: CCE
+args:
+  ignore_index: -1
+  label_smoothing: 0

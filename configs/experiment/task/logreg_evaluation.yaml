@@ -1,0 +1,21 @@
+name: "logreg_evaluation"
+shuffle: False
+drop_last: False
+is_only_one_pair_per_subject: True
+use_balanced_sampler: False
+only_labeled: False
+freeze:
+args:
+  logdir: ./${experiment.task.args.scoring}/ #./${experiment.task.args.scorer.multi_class}_${experiment.task.args.scorer.average}
+  project: ${experiment.project}
+  entity: ${experiment.entity}
+  name: ${name}_f${experiment.fold}_bs${experiment.batch_size}_lr${experiment.optimizer.args.lr}
+  scoring: 'roc_auc_ovo'
+  #scorer:
+  #  multi_class: 'ovo'
+  #  average: 'macro'
+  optuna:
+    solver: saga
+    num_trials: 500
+    seed: ${experiment.seed}
+  save_representation: True

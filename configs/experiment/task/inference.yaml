@@ -1,0 +1,12 @@
+name: "inference"
+shuffle: False
+drop_last: False
+is_only_one_pair_per_subject: True
+use_balanced_sampler: True
+only_labeled: True
+freeze: False
+args:
+  logdir: './'
+  project: ${experiment.project}
+  entity: ${experiment.entity}
+  name: ${name}_f${experiment.fold}_pbs${experiment.pretraining_bs}_plr${experiment.pretraining_lr}

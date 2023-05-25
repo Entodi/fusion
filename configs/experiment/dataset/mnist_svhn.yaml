@@ -1,0 +1,17 @@
+name: MnistSvhn
+input_size: 32
+data_type: "2D"
+args:
+  dataset_dir: ${experiment.dataset_dir}
+  fold: ${experiment.fold}
+  num_folds: ${experiment.num_folds}
+  sources: ${experiment.sources}
+  batch_size: ${experiment.batch_size}
+  shuffle: ${experiment.task.shuffle}
+  drop_last: ${experiment.task.drop_last}
+  num_workers: ${experiment.num_workers}
+  seed: ${experiment.seed}
+  persistent_workers: False
+  pin_memory: False
+  prefetch_factor: 2
+  num_prefetches: 1024

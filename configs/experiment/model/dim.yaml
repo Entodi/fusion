@@ -1,0 +1,13 @@
+name: "Dim"
+dim_l: ${experiment.dim_l}
+freeze: ${experiment.task.freeze}
+args:
+  sources: ${experiment.sources}
+  architecture: ${experiment.model.architecture.name}
+  architecture_params: ${experiment.model.architecture.args}
+  pretrained_checkpoint: ${experiment.pretrained_checkpoint}
+  latent_head_params:
+    use_linear: True
+    num_h_layers: 1
+defaults:
+  - architecture: dcgan_encoder

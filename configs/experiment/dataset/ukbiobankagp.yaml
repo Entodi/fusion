@@ -1,0 +1,22 @@
+name: UKBioBankAGP
+input_size: 128
+data_type: "3D"
+args:
+  dataset_dir: ${experiment.dataset_dir}
+  fold: ${experiment.fold}
+  num_folds: ${experiment.num_folds}
+  sources: ${experiment.sources}
+  batch_size: ${experiment.batch_size}
+  shuffle: True
+  drop_last: ${experiment.task.drop_last}
+  num_workers: ${experiment.num_workers}
+  seed: ${experiment.seed}
+  persistent_workers: False
+  pin_memory: False
+  prefetch_factor: 2
+  num_prefetches: 64
+  use_balanced_sampler: False
+  task_id: ${experiment.task.name}
+  test_mode: False
+  max_datapoints_per_class: 1000
+  num_matching_random_permutation: 10

@@ -1,0 +1,16 @@
+name: "linear_evaluation"
+shuffle: False
+drop_last: True
+is_only_one_pair_per_subject: True
+use_balanced_sampler: True
+only_labeled: True
+freeze: True
+args:
+  logdir: './'
+  num_epochs: 50
+  verbose: false
+  resume: false
+  timeit: false
+  project: ${experiment.project}
+  entity: ${experiment.entity}
+  name: ${name}_f${experiment.fold}_pbs${experiment.pretraining_bs}_plr${experiment.pretraining_lr}_bs${experiment.batch_size}_lr${experiment.optimizer.args.lr}

@@ -1,0 +1,27 @@
+project: apr24_mnist_svhn_svhn
+entity: pixl
+dim_in: [3]
+dim_l: 64
+dim_cls: ["16_0", "8_1", "4_2"]
+dataset_dir: ${data_dir}
+batch_size: 64
+input_dim: 2
+sources: [1]
+fold: 0
+num_folds: 9
+seed: ${seed}
+num_workers: 32
+logdir: ./1/
+conv_layer_class: Conv2d
+norm_layer_class: BatchNorm2d
+conv_t_layer_class: ConvTranspose2d
+pool_layer_class: MaxPool2d
+pretraining_bs: ${experiment.batch_size}
+pretraining_lr: ${experiment.optimizer.args.lr}
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/${experiment.seed}/pretraining/${experiment.logdir}/bs${experiment.pretraining_bs}_lr${experiment.pretraining_lr}/model.best.pth
+defaults:
+  - dataset: mnist_svhn
+  - model: supervised
+  - task: feature_extraction
+  - runner: mnist_svhn_runner
+  - optimizer: radam

@@ -1,0 +1,9 @@
+name: "saliency"
+shuffle: False
+drop_last: False
+is_only_one_pair_per_subject: True
+use_balanced_sampler: False
+only_labeled: True
+args:
+  logdir: './'
+  name: ${name}_f${experiment.fold}

@@ -1,0 +1,25 @@
+entity: noidea
+project: oasis3_saliency
+dim_in: [1, 1]
+dim_l: 64
+dim_cls: [8]
+dataset_dir: ${data_dir}/oasis_old/
+batch_size: 600
+input_dim: 3
+sources: [0, 1]
+fold: 0
+num_folds: 5
+seed: ${seed}
+num_workers: 4
+logdir: ./
+conv_layer_class: Conv3d
+norm_layer_class: BatchNorm3d
+conv_t_layer_class: ConvTranspose3d
+pretraining_bs: 64
+pretraining_lr: ${experiment.optimizer.args.lr}
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/${seed}/pretraining/bs${experiment.pretraining_bs}_lr${experiment.pretraining_lr}/model.best.pth
+defaults:
+  - dataset: oasis
+  - model: dim
+  - task: saliency
+  - optimizer: radam

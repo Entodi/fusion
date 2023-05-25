@@ -1,0 +1,27 @@
+
+entity: pixl
+dim_in: [1]
+dim_l: 64
+dim_cls: ["8_1"]
+project: two_view_mnist_final
+dataset_dir: ${data_dir}
+batch_size: 64
+input_dim: 2
+sources: [0]
+fold: 0
+num_folds: 5
+seed: ${seed}
+num_workers: 32
+logdir: ./0/
+pretrained_checkpoint:
+conv_layer_class: Conv2d
+norm_layer_class: BatchNorm2d
+conv_t_layer_class: ConvTranspose2d
+defaults:
+  - dataset: two_view_mnist
+  - model: supervised
+  - criterion: cce
+  - task: pretraining
+  - optimizer: radam
+  - scheduler: one_cycle_lr
+  - runner: catalyst_runner

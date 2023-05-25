@@ -1,0 +1,10 @@
+name: "AneesAlexNet"
+args:
+  dim_in: ${experiment.dim_in}
+  dim_l: ${experiment.dim_l}
+  input_dim: ${experiment.input_dim}
+  input_size: ${experiment.dataset.input_size}
+  weights_initialization_type: "xavier_uniform"
+  conv_layer_class: ${experiment.conv_layer_class}
+  norm_layer_class: ${experiment.norm_layer_class}
+  pool_layer_class: ${experiment.pool_layer_class}

@@ -1,0 +1,27 @@
+project: apr9_ukbiobank
+entity: pixl
+dim_in: [1]
+dim_l: 64
+dim_cls:
+dataset_dir: ${data_dir}/ukbiobank/folds/
+batch_size: 4
+input_dim: 3
+sources: [0]
+fold: 0
+num_folds: 9
+seed: ${seed}
+num_workers: 4
+logdir: ./Default/
+conv_layer_class: Conv3d
+norm_layer_class: BatchNorm3d
+conv_t_layer_class: ConvTranspose3d
+pool_layer_class: MaxPool3d
+pretrained_checkpoint:
+defaults:
+  - dataset: ukbiobank
+  - model: supervised
+  - criterion: cce
+  - task: pretraining
+  - optimizer: adam
+  - scheduler: rlrp
+  - runner: oasis_runner

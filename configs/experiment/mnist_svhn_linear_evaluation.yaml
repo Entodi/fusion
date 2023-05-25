@@ -1,0 +1,29 @@
+
+entity: pixl
+dim_in: [1, 3]
+dim_l: 64
+dim_cls: ["8_1"]
+dataset_dir: ${data_dir}
+project: mnist_svhn_final_le
+batch_size: 64
+input_dim: 2
+sources: [0, 1]
+fold: 0
+num_folds: 5
+seed: ${seed}
+num_workers: 32
+logdir: ./
+conv_layer_class: Conv2d
+norm_layer_class: BatchNorm2d
+conv_t_layer_class: ConvTranspose2d
+pretraining_bs: ${experiment.batch_size}
+pretraining_lr: ${experiment.optimizer.args.lr}
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/${seed}/pretraining/${experiment.logdir}/bs${experiment.batch_size}_lr${experiment.optimizer.args.lr}/model.best.pth
+defaults:
+  - dataset: mnist_svhn
+  - model: dim
+  - criterion: cce
+  - task: linear_evaluation
+  - optimizer: radam
+  - scheduler: one_cycle_lr
+  - runner: mnist_svhn_runner

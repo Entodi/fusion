@@ -1,0 +1,7 @@
+name: "SGD"
+args:
+  lr: 4e-04
+  momentum: 0.9
+  dampening: 0
+  nesterov: True
+  weight_decay: 0.0001

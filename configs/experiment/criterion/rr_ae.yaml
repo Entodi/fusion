@@ -1,0 +1,15 @@
+name: RR_AE
+args:
+  estimator_setting:
+    class_type: InfoNceEstimator
+    args:
+      critic_setting:
+        class_type: ScaledDotProduct
+        args:
+      clip_setting:
+        class_type: TahnClip
+        args:
+          clip_value: 20.
+      penalty_setting:
+        class_type: L2Penalty
+        args:

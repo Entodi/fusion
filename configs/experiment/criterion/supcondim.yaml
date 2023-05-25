@@ -1,0 +1,11 @@
+name: SupConDim
+args:
+  temperature: 1
+  contrast_mode: 'all'
+  base_temperature: 1
+  critic_setting:
+    class_type: CosineSimilarity
+    args:
+      temperature: 1
+  clip_setting:
+  penalty_setting:

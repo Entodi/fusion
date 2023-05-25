@@ -1,0 +1,16 @@
+name: "pretraining"
+shuffle: True
+drop_last: True
+is_only_one_pair_per_subject: False
+use_balanced_sampler: False
+only_labeled: False
+freeze:
+args:
+  logdir: './'
+  num_epochs: 50
+  verbose: false
+  resume: false
+  timeit: false
+  project: ${experiment.project}
+  entity: ${experiment.entity}
+  name: ${name}_f${experiment.fold}_bs${experiment.batch_size}_lr${experiment.optimizer.args.lr}

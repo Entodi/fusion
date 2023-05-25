@@ -1,0 +1,18 @@
+name: SpatialMultiDim
+args:
+  dim_cls: ${experiment.dim_cls}
+  estimator_setting:
+    class_type: InfoNceEstimator
+    args:
+      critic_setting:
+        class_type: ScaledDotProduct
+        args:
+      clip_setting:
+        class_type: TahnClip
+        args:
+          clip_value: 20.
+      penalty_setting:
+        class_type: L2Penalty
+        args:
+  modes: [CR]
+  weights: [1.]

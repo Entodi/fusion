@@ -1,0 +1,15 @@
+name: "PIXL"
+freeze: ${experiment.task.freeze}
+args:
+  dim_l: ${experiment.dim_l}
+  sources: ${experiment.sources}
+  num_classes: ???
+  architecture: ${experiment.model.architecture.name}
+  architecture_params: ${experiment.model.architecture.args}
+  pretrained_checkpoint: ${experiment.pretrained_checkpoint}
+  latent_head_params:
+    use_linear: True
+    num_h_layers: 1
+  one_source_mode: False
+defaults:
+  - architecture: dcgan_encoder

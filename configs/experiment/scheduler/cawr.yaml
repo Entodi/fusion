@@ -1,0 +1,6 @@
+name: "CAWR"
+args:
+  eta_min: 0
+  verbose: False
+  T_0: 1
+  T_mult: 2

@@ -1,0 +1,27 @@
+project: apr9_ukbiobank
+entity: pixl
+dim_in: [1,1]
+dim_l: 64
+dim_cls: ['6_2','6_3','6_4']
+dataset_dir: ${data_dir}/ukbiobank/folds/
+batch_size: 16
+input_dim: 3
+sources: [0,1]
+fold: 0
+num_folds: 9
+seed: ${seed}
+num_workers: 4
+logdir: ./Default_fMRIPrep2mm/
+conv_layer_class: Conv3d
+norm_layer_class: BatchNorm3d
+conv_t_layer_class: ConvTranspose3d
+pool_layer_class: MaxPool3d
+pretrained_checkpoint:
+defaults:
+  - dataset: ukbiobank
+  - model: dim
+  - criterion: volumetric_multi_dim
+  - task: pretraining
+  - optimizer: adam
+  #- scheduler: rlrp
+  - runner: oasis_runner

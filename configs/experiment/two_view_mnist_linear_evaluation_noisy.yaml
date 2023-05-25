@@ -1,0 +1,28 @@
+entity: pixl
+dim_in: [1]
+dim_l: 64
+dim_cls: ["8_1"]
+dataset_dir: ${data_dir}
+batch_size: 64
+input_dim: 2
+sources: [1]
+fold: 0
+project: two_view_mnist_final_le
+num_folds: 5
+seed: ${seed}
+num_workers: 32
+logdir: ./1/
+conv_layer_class: Conv2d
+norm_layer_class: BatchNorm2d
+conv_t_layer_class: ConvTranspose2d
+pretraining_bs: ${experiment.batch_size}
+pretraining_lr: ${experiment.optimizer.args.lr}
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/${seed}/pretraining/${experiment.logdir}/bs${experiment.batch_size}_lr${experiment.optimizer.args.lr}/model.best.pth
+defaults:
+  - dataset: two_view_mnist
+  - model: supervised
+  - criterion: cce
+  - task: linear_evaluation
+  - optimizer: radam
+  - scheduler: one_cycle_lr
+  - runner: catalyst_runner

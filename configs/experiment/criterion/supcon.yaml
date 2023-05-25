@@ -1,0 +1,5 @@
+name: SupCon
+args:
+  temperature: 1
+  contrast_mode: 'all'
+  base_temperature: 1

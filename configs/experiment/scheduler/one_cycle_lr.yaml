@@ -1,0 +1,4 @@
+name: "OneCycleLR"
+args:
+  max_lr: 1e-02
+  verbose: False

@@ -1,0 +1,26 @@
+
+project: oasis3_le
+dim_in: [1, 1]
+dim_l: 64
+dim_cls: [8]
+dataset_dir: ${data_dir}/oasis/
+batch_size: 64
+input_dim: 3
+sources: [0, 1]
+fold: 0
+num_folds: 5
+seed: ${seed}
+num_workers: 4
+logdir: ./
+conv_layer_class: Conv3d
+norm_layer_class: BatchNorm3d
+conv_t_layer_class: ConvTranspose3d
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/pretraining/best.pth
+defaults:
+  - dataset: oasis
+  - model: dim
+  - criterion: bce
+  - task: linear_evaluation
+  - optimizer: radam
+  - scheduler: one_cycle_lr
+  - runner: oasis_runner

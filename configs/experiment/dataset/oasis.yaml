@@ -1,0 +1,31 @@
+name: Oasis
+input_size: 64
+data_type: "3D"
+args:
+  dataset_dir: ${experiment.dataset_dir}
+  fold: ${experiment.fold}
+  num_folds: ${experiment.num_folds}
+  sources: ${experiment.sources}
+  batch_size: ${experiment.batch_size}
+  shuffle: ${experiment.task.shuffle}
+  drop_last: ${experiment.task.drop_last}
+  num_workers: ${experiment.num_workers}
+  seed: ${experiment.seed}
+  persistent_workers: False
+  pin_memory: False
+  prefetch_factor: 2
+  num_prefetches: 64
+  is_only_one_pair_per_subject: ${experiment.task.is_only_one_pair_per_subject}
+  use_balanced_sampler:  ${experiment.task.use_balanced_sampler}
+  use_separate_augmentation: False
+  only_labeled: ${experiment.task.only_labeled}
+  task_id: ${experiment.task.name}
+  mask: ${work_dir}/data/MNI152_T1_3mm_brain_mask_dil_cubic192.nii.gz
+  unlabelled_as_class: False
+  transforms:
+    pad_crop: True
+    flip: False
+    rescale: False
+    histogram: False
+    z_normalization: False
+    mask: False

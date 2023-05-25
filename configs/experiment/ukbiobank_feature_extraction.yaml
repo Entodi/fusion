@@ -1,0 +1,27 @@
+project: apr9_ukbiobank
+entity: pixl
+dim_in: [1]
+dim_l: 64
+dim_cls: ["62_0","18_1","6_2","6_3","6_4"]
+dataset_dir: ${data_dir}/ukbiobank/folds/
+batch_size: 1
+input_dim: 3
+sources: [0]
+fold: 0
+num_folds: 9
+seed: ${seed}
+num_workers: 8
+logdir: ./Default/
+conv_layer_class: Conv3d
+norm_layer_class: BatchNorm3d
+conv_t_layer_class: ConvTranspose3d
+pool_layer_class: MaxPool3d
+pretraining_bs: ${experiment.batch_size}
+pretraining_lr: ${experiment.optimizer.args.lr}
+pretrained_checkpoint: ${work_dir}/${dir}/${name}/${experiment.dataset.name}/${experiment.fold}/${experiment.seed}/pretraining/${experiment.logdir}/bs${experiment.pretraining_bs}_lr${experiment.pretraining_lr}/model.best.pth
+defaults:
+  - dataset: ukbiobank
+  - model: supervised
+  - task: feature_extraction
+  - runner: oasis_runner
+  - optimizer: adam

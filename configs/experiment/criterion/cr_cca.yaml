@@ -1,0 +1,17 @@
+name: CR_CCA
+args:
+  dim_cls: ${experiment.dim_cls}
+  input_dim: ${experiment.input_dim}
+  estimator_setting:
+    class_type: InfoNceEstimator
+    args:
+      critic_setting:
+        class_type: ScaledDotProduct
+        args:
+      clip_setting:
+        class_type: TahnClip
+        args:
+          clip_value: 20.
+      penalty_setting:
+        class_type: L2Penalty
+        args:
