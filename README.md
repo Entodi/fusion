@@ -3,9 +3,6 @@ Fusion is a self-supervised framework for data with multiple sources — specifi
 
 Fusion aims to provide a foundation for fair comparison of new models in different multi-view, multi-domain, or multi-modal scenarios. Currently, we provide only two datasets with multi-view, multi-domain natural images. Further, the repository will be updated with multi-modal neuroimaging datasets.
 
-The other goal of Fusion is to reproduce the following works:
-https://arxiv.org/abs/2012.13623, https://arxiv.org/abs/2012.13619, and https://arxiv.org/abs/2103.15914.
-
 This project is under active development, and the codebase is subject to change.
 
 ---
@@ -37,63 +34,9 @@ The experiments are defined using the Hydra configs (https://hydra.cc/docs/next/
 
 The training pipeline is based on the Catalyst framework (https://catalyst-team.github.io/catalyst/).
 
-### Benchmarks on Two-View MNIST
-
-![](https://github.com/Entodi/fusion/blob/main/figures/TwoViewMnist_ACC.png?raw=true)
-
-### Benchmarks on MNIST-SVHN
-![](https://github.com/Entodi/fusion/blob/main/figures/MNIST-SVHN_ACC.png?raw=true)
-
 ---
 ## Questions
 If you have any questions about implementation and training, don't hesitate to either open an issue here or send an email to eidos92@gmail.com.
-
----
-### Package Architecture
-
-The package's software architecture is available in the directory `UML` based on [PlantUML](https://plantuml.com/).
-
----
-## Citation
-
-If you use Fusion for published work, please cite our work using the following bibtex entry.
-
-For taxonomy and natural images please cite:
-
-```
-@misc{fedorov2021selfsupervised,
-      title={Self-Supervised Multimodal Domino: in Search of Biomarkers for Alzheimer's Disease},
-      author={Alex Fedorov and Tristan Sylvain and Eloy Geenjaar and Margaux Luck and Lei Wu and Thomas P. DeRamus and Alex Kirilin and Dmitry Bleklov and Vince D. Calhoun and Sergey M. Plis},
-      year={2021},
-      eprint={2012.13623},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-```
-
-For Neuroimaging please cite:
-```
-@inproceedings{fedorov2021self,
-  title={On Self-Supervised Multimodal Representation Learning: An Application To Alzheimer’s Disease},
-  author={Fedorov, Alex and Wu, Lei and Sylvain, Tristan and Luck, Margaux and DeRamus, Thomas P and Bleklov, Dmitry and Plis, Sergey M and Calhoun, Vince D},
-  booktitle={2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)},
-  pages={1548--1552},
-  year={2021},
-  organization={IEEE}
-}
-```
-
-For out-of-distribution generalization please cite:
-```
-@misc{fedorov2021tasting,
-      title={Tasting the cake: evaluating self-supervised generalization on out-of-distribution multimodal MRI data},
-      author={Alex Fedorov and Eloy Geenjaar and Lei Wu and Thomas P. DeRamus and Vince D. Calhoun and Sergey M. Plis},
-      year={2021},
-      eprint={2103.15914},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
 
 ---
 ## Acknowledgement
