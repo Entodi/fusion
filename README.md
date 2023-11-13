@@ -35,6 +35,10 @@ The experiments are defined using the Hydra configs (https://hydra.cc/docs/next/
 The training pipeline is based on the Catalyst framework (https://catalyst-team.github.io/catalyst/).
 
 ---
+## Pretrainted models
+The pre-trained models for OASIS 3 dataset can be downloaded using [this link](https://drive.google.com/file/d/1knfQGXq0G2hoEmcnOQsswm-lgd2IpUuJ/view?usp=sharing). These weights are under Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License (CC BY-NC-ND 4.0).
+
+---
 ## Questions
 If you have any questions about implementation and training, don't hesitate to either open an issue here or send an email to eidos92@gmail.com.
 
