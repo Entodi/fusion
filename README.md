@@ -35,7 +35,7 @@ The experiments are defined using the Hydra configs (https://hydra.cc/docs/next/
 The training pipeline is based on the Catalyst framework (https://catalyst-team.github.io/catalyst/).
 
 ---
-## Pretrainted models
+## Pre-trained models
 The pre-trained models for OASIS 3 dataset can be downloaded using [this link](https://drive.google.com/file/d/1knfQGXq0G2hoEmcnOQsswm-lgd2IpUuJ/view?usp=sharing). These weights are under Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License (CC BY-NC-ND 4.0).
 
 ---
@@ -46,7 +46,7 @@ If you have any questions about implementation and training, don't hesitate to e
 ## Acknowledgement
 Specials thanks to [Devon Hjelm](https://github.com/rdevon) and [Philip Bachman](https://github.com/Philip-Bachman) for providing code for [DIM](https://github.com/rdevon/DIM) and [AMDIM](https://github.com/Philip-Bachman/amdim-public).
 
-Additionally thanks to [Sergey Kolesnikov](https://github.com/Scitator) for the help on [Catalyst](https://github.com/catalyst-team/catalyst) framework and [Kevin Wang](https://github.com/ssktotoro) for the support.
+Additionally, thanks to [Sergey Kolesnikov](https://github.com/Scitator) for the help on [Catalyst](https://github.com/catalyst-team/catalyst) framework and [Kevin Wang](https://github.com/ssktotoro) for the support.
 
 This work is supported by NIH R01 EB006841.
 
