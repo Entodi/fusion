@@ -42,6 +42,20 @@ The pre-trained models for OASIS 3 dataset can be downloaded using [this link](h
 ## Questions
 If you have any questions about implementation and training, don't hesitate to either open an issue here or send an email to eidos92@gmail.com.
 
+
+--- 
+## Citing
+If you find Fusion useful in your research, please use the following BibTeX entry for citation.
+```
+@article{fedorov2023self,
+  title={Self-supervised multimodal learning for group inferences from MRI data: Discovering disorder-relevant brain regions and multimodal links},
+  author={Fedorov, Alex and Geenjaar, Eloy and Wu, Lei and Sylvain, Tristan and DeRamus, Thomas P and Luck, Margaux and Misiura, Maria and Mittapalle, Girish and Hjelm, R Devon and Plis, Sergey M and others},
+  journal={NeuroImage},
+  pages={120485},
+  year={2023},
+  publisher={Elsevier}
+}
+```
 ---
 ## Acknowledgement
 Specials thanks to [Devon Hjelm](https://github.com/rdevon) and [Philip Bachman](https://github.com/Philip-Bachman) for providing code for [DIM](https://github.com/rdevon/DIM) and [AMDIM](https://github.com/Philip-Bachman/amdim-public).
