@@ -47,12 +47,13 @@ If you have any questions about implementation and training, don't hesitate to e
 ## Citing
 If you find Fusion useful in your research, please use the following BibTeX entry for citation.
 ```
-@article{fedorov2023self,
+@article{fedorov2024self,
   title={Self-supervised multimodal learning for group inferences from MRI data: Discovering disorder-relevant brain regions and multimodal links},
   author={Fedorov, Alex and Geenjaar, Eloy and Wu, Lei and Sylvain, Tristan and DeRamus, Thomas P and Luck, Margaux and Misiura, Maria and Mittapalle, Girish and Hjelm, R Devon and Plis, Sergey M and others},
   journal={NeuroImage},
+  volume={285},
   pages={120485},
-  year={2023},
+  year={2024},
   publisher={Elsevier}
 }
 ```
